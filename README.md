@@ -7,30 +7,29 @@ Here, you’ll use AVAudioEngine to build the next great podcasting app: Istiakc
 
 The features you’ll implement in this app are:
 
-Play a local audio file.
-View the playback progress.
-Observe the audio signal level with a VU meter.
-Skip forward or backward.
-Change the playback rate and pitch.
+1. Play a local audio file.
+2. View the playback progress.
+3. Observe the audio signal level with a VU meter.
+4. Skip forward or backward.
+5. Change the playback rate and pitch.
 
-Understanding iOS Audio Frameworks
+**Understanding iOS Audio Frameworks**
 
 Before jumping into the project, here’s a quick overview of the iOS Audio frameworks:
 
-CoreAudio and AudioToolbox are the low-level C frameworks.
-AVFoundation is an Objective-C/Swift framework.
-AVAudioEngine is a part of AVFoundation.
+- CoreAudio and AudioToolbox are the low-level C frameworks.
+- AVFoundation is an Objective-C/Swift framework.
+- AVAudioEngine is a part of AVFoundation.**
 
 ![Screenshot 2021-08-21 at 8 38 34 PM](https://user-images.githubusercontent.com/2936695/130325367-51fc0e81-19cf-4a82-9eb3-88191a65554e.png)
 
 
-AVAudioEngine is a class that defines a group of connected audio nodes. You’ll add two nodes to the project: AVAudioPlayerNode and AVAudioUnitTimePitch.
+- AVAudioEngine is a class that defines a group of connected audio nodes. You’ll add two nodes to the project: AVAudioPlayerNode and AVAudioUnitTimePitch.
 
 <img width="615" alt="Screenshot 2021-08-21 at 8 41 28 PM" src="https://user-images.githubusercontent.com/2936695/130325419-8f846b44-4ea9-4397-b450-5b52e8e37f84.png">
 
 
-
-Comparison:
+**Comparison:**
 
 AVPlayer
 + Super simple
