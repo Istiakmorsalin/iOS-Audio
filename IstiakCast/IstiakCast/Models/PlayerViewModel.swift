@@ -111,9 +111,59 @@ class PlayerViewModel: NSObject, ObservableObject {
   // MARK: - Private
 
   private func setupAudio() {
+    // This gets the URL of the audio file included in the app bundle
+    guard let fileURL = Bundle.main.url(
+      forResource: "Topu",
+      withExtension: "mp3")
+    else {
+      return
+    }
+
+    do {
+      // The audio file is transformed into an AVAudioFile and a few properties are extracted from the file’s metadata
+      let file = try AVAudioFile(forReading: fileURL)
+      let format = file.processingFormat
+      
+      audioLengthSamples = file.length
+      audioSampleRate = format.sampleRate
+      audioLengthSeconds = Double(audioLengthSamples) / audioSampleRate
+      
+      audioFile = file
+      
+      // prepare an audio file for playback is to set up the audio engine
+      configureEngine(with: format)
+    } catch {
+      print("Error reading the audio file: \(error.localizedDescription)")
+    }
   }
 
   private func configureEngine(with format: AVAudioFormat) {
+    // Attach the player node to the engine, which you must do before connecting other nodes. These nodes will either produce, process or output audio. The audio engine provides a main mixer node that you connect to the player node. By default, the main mixer connects to the engine default output node, the iOS device speaker.
+    engine.attach(player)
+    engine.attach(timeEffect)
+
+    // 2
+    engine.connect(
+      player,
+      to: timeEffect,
+      format: format)
+    engine.connect(
+      timeEffect,
+      to: engine.mainMixerNode,
+      format: format)
+
+    engine.prepare()
+
+    do {
+      // 3
+      try engine.start()
+      
+      scheduleAudioFile()
+      isPlayerReady = true
+    } catch {
+      print("Error starting the player: \(error.localizedDescription)")
+    }
+
   }
 
   private func scheduleAudioFile() {
