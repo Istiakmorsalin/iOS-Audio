@@ -22,7 +22,7 @@ struct PlayerView: View {
     VStack {
       ProgressView(value: viewModel.playerProgress)
         .progressViewStyle(
-          LinearProgressViewStyle(tint: .rwGreen))
+          LinearProgressViewStyle(tint: .istYellow))
         .padding(.bottom, 8)
 
       HStack {
@@ -103,7 +103,7 @@ struct PlayerView: View {
         viewModel.playOrPause()
       } label: {
         ZStack {
-          Color.rwGreen
+          Color.istYellow
             .frame(
               width: 10,
               height: 35 * CGFloat(viewModel.meterLevel))
