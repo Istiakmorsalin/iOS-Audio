@@ -167,6 +167,20 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   private func scheduleAudioFile() {
+    guard
+      let file = audioFile,
+      needsFileScheduled
+    else {
+      return
+    }
+
+    needsFileScheduled = false
+    seekFrame = 0
+
+    player.scheduleFile(file, at: nil) {
+      self.needsFileScheduled = true
+    }
+
   }
 
   // MARK: Audio adjustments
