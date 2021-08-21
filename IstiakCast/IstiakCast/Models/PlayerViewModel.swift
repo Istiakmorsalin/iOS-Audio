@@ -122,6 +122,15 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   func skip(forwards: Bool) {
+    let timeToSeek: Double
+
+    if forwards {
+      timeToSeek = 10
+    } else {
+      timeToSeek = -10
+    }
+
+    seek(to: timeToSeek)
   }
 
   // MARK: - Private
