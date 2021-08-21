@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1641B59526D123D300419DB9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59426D123D300419DB9 /* Persistence.swift */; };
+		1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59626D123D300419DB9 /* IstiakCast.xcdatamodeld */; };
+		1641B5A326D123D300419DB9 /* IstiakCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5A226D123D300419DB9 /* IstiakCastTests.swift */; };
+		1641B5AE26D123D300419DB9 /* IstiakCastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5AD26D123D300419DB9 /* IstiakCastUITests.swift */; };
+		1641B5C726D1267A00419DB9 /* AppMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5C626D1267A00419DB9 /* AppMain.swift */; };
+		1641B5DB26D127FE00419DB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1641B5D626D127E600419DB9 /* LaunchScreen.storyboard */; };
+		1641B5DC26D1280600419DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1641B5D526D127E600419DB9 /* Assets.xcassets */; };
+		1641B5DE26D1282E00419DB9 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5DD26D1282E00419DB9 /* PlayerView.swift */; };
+		1641B5E326D1287500419DB9 /* Color+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5E226D1287500419DB9 /* Color+Additions.swift */; };
+		1641B5E526D1288000419DB9 /* Image+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5E426D1288000419DB9 /* Image+Additions.swift */; };
+		1641B5F326D128DB00419DB9 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5EF26D128DB00419DB9 /* PlayerViewModel.swift */; };
+		1641B5F426D128DB00419DB9 /* PlayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F026D128DB00419DB9 /* PlayerTime.swift */; };
+		1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F126D128DB00419DB9 /* PlaybackValue.swift */; };
+		1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F226D128DB00419DB9 /* TimeConstant.swift */; };
+		1671575226D131AF004A7272 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671575126D131AF004A7272 /* Topu.mp3 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1641B59F26D123D300419DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1641B58026D123D100419DB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1641B58726D123D100419DB9;
+			remoteInfo = IstiakCast;
+		};
+		1641B5AA26D123D300419DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1641B58026D123D100419DB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1641B58726D123D100419DB9;
+			remoteInfo = IstiakCast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1641B58826D123D100419DB9 /* IstiakCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IstiakCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1641B59226D123D300419DB9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1641B59426D123D300419DB9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1641B59726D123D300419DB9 /* IstiakCast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IstiakCast.xcdatamodel; sourceTree = "<group>"; };
+		1641B59E26D123D300419DB9 /* IstiakCastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IstiakCastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1641B5A226D123D300419DB9 /* IstiakCastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IstiakCastTests.swift; sourceTree = "<group>"; };
+		1641B5A426D123D300419DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1641B5A926D123D300419DB9 /* IstiakCastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IstiakCastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1641B5AD26D123D300419DB9 /* IstiakCastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IstiakCastUITests.swift; sourceTree = "<group>"; };
+		1641B5AF26D123D300419DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1641B5C626D1267A00419DB9 /* AppMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
+		1641B5D526D127E600419DB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1641B5D726D127E600419DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1641B5D926D127E600419DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1641B5DD26D1282E00419DB9 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		1641B5E226D1287500419DB9 /* Color+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Additions.swift"; sourceTree = "<group>"; };
+		1641B5E426D1288000419DB9 /* Image+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+Additions.swift"; sourceTree = "<group>"; };
+		1641B5EF26D128DB00419DB9 /* PlayerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		1641B5F026D128DB00419DB9 /* PlayerTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTime.swift; sourceTree = "<group>"; };
+		1641B5F126D128DB00419DB9 /* PlaybackValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackValue.swift; sourceTree = "<group>"; };
+		1641B5F226D128DB00419DB9 /* TimeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConstant.swift; sourceTree = "<group>"; };
+		1671575126D131AF004A7272 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1641B58526D123D100419DB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B59B26D123D300419DB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B5A626D123D300419DB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1641B57F26D123D000419DB9 = {
+			isa = PBXGroup;
+			children = (
+				1641B58A26D123D100419DB9 /* IstiakCast */,
+				1641B5A126D123D300419DB9 /* IstiakCastTests */,
+				1641B5AC26D123D300419DB9 /* IstiakCastUITests */,
+				1641B58926D123D100419DB9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1641B58926D123D100419DB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1641B58826D123D100419DB9 /* IstiakCast.app */,
+				1641B59E26D123D300419DB9 /* IstiakCastTests.xctest */,
+				1641B5A926D123D300419DB9 /* IstiakCastUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1641B58A26D123D100419DB9 /* IstiakCast */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5C626D1267A00419DB9 /* AppMain.swift */,
+				1641B5F726D128E400419DB9 /* Models */,
+				1641B5E626D1288500419DB9 /* Extensions */,
+				1641B5DF26D1285500419DB9 /* Views */,
+				1641B5D426D127E600419DB9 /* Supporting Files */,
+				1641B59426D123D300419DB9 /* Persistence.swift */,
+				1641B59626D123D300419DB9 /* IstiakCast.xcdatamodeld */,
+				1641B59126D123D300419DB9 /* Preview Content */,
+			);
+			path = IstiakCast;
+			sourceTree = "<group>";
+		};
+		1641B59126D123D300419DB9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1641B59226D123D300419DB9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1641B5A126D123D300419DB9 /* IstiakCastTests */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5A226D123D300419DB9 /* IstiakCastTests.swift */,
+				1641B5A426D123D300419DB9 /* Info.plist */,
+			);
+			path = IstiakCastTests;
+			sourceTree = "<group>";
+		};
+		1641B5AC26D123D300419DB9 /* IstiakCastUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5AD26D123D300419DB9 /* IstiakCastUITests.swift */,
+				1641B5AF26D123D300419DB9 /* Info.plist */,
+			);
+			path = IstiakCastUITests;
+			sourceTree = "<group>";
+		};
+		1641B5D426D127E600419DB9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5D526D127E600419DB9 /* Assets.xcassets */,
+				1671575126D131AF004A7272 /* Topu.mp3 */,
+				1641B5D626D127E600419DB9 /* LaunchScreen.storyboard */,
+				1641B5D926D127E600419DB9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1641B5DF26D1285500419DB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5DD26D1282E00419DB9 /* PlayerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1641B5E626D1288500419DB9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5E226D1287500419DB9 /* Color+Additions.swift */,
+				1641B5E426D1288000419DB9 /* Image+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1641B5F726D128E400419DB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1641B5F126D128DB00419DB9 /* PlaybackValue.swift */,
+				1641B5F026D128DB00419DB9 /* PlayerTime.swift */,
+				1641B5EF26D128DB00419DB9 /* PlayerViewModel.swift */,
+				1641B5F226D128DB00419DB9 /* TimeConstant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1641B58726D123D100419DB9 /* IstiakCast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1641B5B226D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCast" */;
+			buildPhases = (
+				1641B58426D123D100419DB9 /* Sources */,
+				1641B58526D123D100419DB9 /* Frameworks */,
+				1641B58626D123D100419DB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IstiakCast;
+			productName = IstiakCast;
+			productReference = 1641B58826D123D100419DB9 /* IstiakCast.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1641B59D26D123D300419DB9 /* IstiakCastTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1641B5B526D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastTests" */;
+			buildPhases = (
+				1641B59A26D123D300419DB9 /* Sources */,
+				1641B59B26D123D300419DB9 /* Frameworks */,
+				1641B59C26D123D300419DB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1641B5A026D123D300419DB9 /* PBXTargetDependency */,
+			);
+			name = IstiakCastTests;
+			productName = IstiakCastTests;
+			productReference = 1641B59E26D123D300419DB9 /* IstiakCastTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1641B5A826D123D300419DB9 /* IstiakCastUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1641B5B826D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastUITests" */;
+			buildPhases = (
+				1641B5A526D123D300419DB9 /* Sources */,
+				1641B5A626D123D300419DB9 /* Frameworks */,
+				1641B5A726D123D300419DB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1641B5AB26D123D300419DB9 /* PBXTargetDependency */,
+			);
+			name = IstiakCastUITests;
+			productName = IstiakCastUITests;
+			productReference = 1641B5A926D123D300419DB9 /* IstiakCastUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1641B58026D123D100419DB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					1641B58726D123D100419DB9 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					1641B59D26D123D300419DB9 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 1641B58726D123D100419DB9;
+					};
+					1641B5A826D123D300419DB9 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 1641B58726D123D100419DB9;
+					};
+				};
+			};
+			buildConfigurationList = 1641B58326D123D100419DB9 /* Build configuration list for PBXProject "IstiakCast" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1641B57F26D123D000419DB9;
+			productRefGroup = 1641B58926D123D100419DB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1641B58726D123D100419DB9 /* IstiakCast */,
+				1641B59D26D123D300419DB9 /* IstiakCastTests */,
+				1641B5A826D123D300419DB9 /* IstiakCastUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1641B58626D123D100419DB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641B5DC26D1280600419DB9 /* Assets.xcassets in Resources */,
+				1641B5DB26D127FE00419DB9 /* LaunchScreen.storyboard in Resources */,
+				1671575226D131AF004A7272 /* Topu.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B59C26D123D300419DB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B5A726D123D300419DB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1641B58426D123D100419DB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641B5E326D1287500419DB9 /* Color+Additions.swift in Sources */,
+				1641B59526D123D300419DB9 /* Persistence.swift in Sources */,
+				1641B5C726D1267A00419DB9 /* AppMain.swift in Sources */,
+				1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */,
+				1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */,
+				1641B5DE26D1282E00419DB9 /* PlayerView.swift in Sources */,
+				1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */,
+				1641B5F326D128DB00419DB9 /* PlayerViewModel.swift in Sources */,
+				1641B5E526D1288000419DB9 /* Image+Additions.swift in Sources */,
+				1641B5F426D128DB00419DB9 /* PlayerTime.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B59A26D123D300419DB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641B5A326D123D300419DB9 /* IstiakCastTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1641B5A526D123D300419DB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1641B5AE26D123D300419DB9 /* IstiakCastUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1641B5A026D123D300419DB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1641B58726D123D100419DB9 /* IstiakCast */;
+			targetProxy = 1641B59F26D123D300419DB9 /* PBXContainerItemProxy */;
+		};
+		1641B5AB26D123D300419DB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1641B58726D123D100419DB9 /* IstiakCast */;
+			targetProxy = 1641B5AA26D123D300419DB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1641B5D626D127E600419DB9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1641B5D726D127E600419DB9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1641B5B026D123D300419DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1641B5B126D123D300419DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1641B5B326D123D300419DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"IstiakCast/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/IstiakCast/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1641B5B426D123D300419DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"IstiakCast/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/IstiakCast/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1641B5B626D123D300419DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IstiakCastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IstiakCast.app/IstiakCast";
+			};
+			name = Debug;
+		};
+		1641B5B726D123D300419DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IstiakCastTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCastTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IstiakCast.app/IstiakCast";
+			};
+			name = Release;
+		};
+		1641B5B926D123D300419DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IstiakCastUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCastUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IstiakCast;
+			};
+			name = Debug;
+		};
+		1641B5BA26D123D300419DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = IstiakCastUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.istiak.podcast.IstiakCastUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = IstiakCast;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1641B58326D123D100419DB9 /* Build configuration list for PBXProject "IstiakCast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641B5B026D123D300419DB9 /* Debug */,
+				1641B5B126D123D300419DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1641B5B226D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641B5B326D123D300419DB9 /* Debug */,
+				1641B5B426D123D300419DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1641B5B526D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641B5B626D123D300419DB9 /* Debug */,
+				1641B5B726D123D300419DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1641B5B826D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1641B5B926D123D300419DB9 /* Debug */,
+				1641B5BA26D123D300419DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1641B59626D123D300419DB9 /* IstiakCast.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1641B59726D123D300419DB9 /* IstiakCast.xcdatamodel */,
+			);
+			currentVersion = 1641B59726D123D300419DB9 /* IstiakCast.xcdatamodel */;
+			path = IstiakCast.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1641B58026D123D100419DB9 /* Project object */;
+}
