@@ -3,9 +3,9 @@ Here You will find audio related RnD for iOS.
 
 As prior to iOS 8, it was needed to dive into the depths of the low-level Core Audio framework,It was a cumbersome task to handle audio processing on that particular mobile platform. But, The relief is that all the difficult tasks were a lot easier when Apple released AVAudioEngine in 2014. 
 
-Here, you’ll use AVAudioEngine to build the next great podcasting app: Istiakcast. :
+Here, We’ll use AVAudioEngine to build the next great podcasting app: Istiakcast. :
 
-The features you’ll implement in this app are:
+The features We’ll implement in this app are:
 
 1. Play a local audio file.
 2. View the playback progress.
@@ -59,17 +59,7 @@ CoreAudio
 – Painful to work with
 – Apple’s deprecating parts of it
 
-We decided that AVAudioEngine was the way to go but there were plenty of pitfalls. If you’re a developer here are some things to watch out for:
-Bad documentation. You’ll have to scour the smallest corners of the web to find information
-Bugs that only a few people have experienced. StackOverflow won’t help you here. This year there were only 82 total questions for AVAudioEngine
-You should learn how audio is digitized and stored. Compressed, Uncompressed, VBR, CBR, etc.
-If you want streaming to work you’ll have to be familiar with URLSession
-Concurrency was a pain. Get familiar with GCD and log statements
-Even though you’re working in Swift you’ll still need to do manual memory allocation. Pair this with concurrency problems and debugging gets disheartening.
-
-
-
-AvAudioEngine implementation is done. Here is the screenshot of the implementation. 
+We decided that AVAudioEngine was the way to go but there were plenty of pitfalls. The implementation is done. Here is the screenshot of the implementation. 
 
 
 https://user-images.githubusercontent.com/2936695/130327190-1b1b962e-86d4-4c56-97a2-b8be7af0d90e.mov
