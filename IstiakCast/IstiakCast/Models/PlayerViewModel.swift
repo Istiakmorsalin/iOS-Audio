@@ -253,6 +253,8 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   private func updateForPitchSelection() {
+    let selectedPitch = allPlaybackPitches[playbackPitchIndex]
+    timeEffect.pitch = 1200 * Float(selectedPitch.value)
   }
 
   // MARK: Audio metering
