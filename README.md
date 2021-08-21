@@ -24,7 +24,7 @@ Before jumping into the project, here’s a quick overview of the iOS Audio fram
 ![Screenshot 2021-08-21 at 8 38 34 PM](https://user-images.githubusercontent.com/2936695/130325367-51fc0e81-19cf-4a82-9eb3-88191a65554e.png)
 
 
-- AVAudioEngine is a class that defines a group of connected audio nodes. You’ll add two nodes to the project: AVAudioPlayerNode and AVAudioUnitTimePitch.
+- AVAudioEngine is a class that defines a group of connected audio nodes. We’ll add two nodes to the project: AVAudioPlayerNode and AVAudioUnitTimePitch.
 
 <img width="615" alt="Screenshot 2021-08-21 at 8 41 28 PM" src="https://user-images.githubusercontent.com/2936695/130325419-8f846b44-4ea9-4397-b450-5b52e8e37f84.png">
 
