@@ -248,6 +248,8 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   private func updateForRateSelection() {
+    let selectedRate = allPlaybackRates[playbackRateIndex]
+    timeEffect.rate = Float(selectedRate.value)
   }
 
   private func updateForPitchSelection() {
