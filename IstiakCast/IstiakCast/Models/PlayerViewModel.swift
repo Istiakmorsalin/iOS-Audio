@@ -138,11 +138,11 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   private func configureEngine(with format: AVAudioFormat) {
-    // Attach the player node to the engine, which you must do before connecting other nodes. These nodes will either produce, process or output audio. The audio engine provides a main mixer node that you connect to the player node. By default, the main mixer connects to the engine default output node, the iOS device speaker.
+    // Attach the player node to the engine
     engine.attach(player)
     engine.attach(timeEffect)
 
-    // 2
+    // Connect the player and time effect to the engine
     engine.connect(
       player,
       to: timeEffect,
@@ -155,7 +155,7 @@ class PlayerViewModel: NSObject, ObservableObject {
     engine.prepare()
 
     do {
-      // 3
+      // Start the engine, which prepares the device to play audio. The state is also updated to prepare the visual interface.
       try engine.start()
       
       scheduleAudioFile()
