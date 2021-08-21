@@ -103,6 +103,16 @@ class PlayerViewModel: NSObject, ObservableObject {
   }
 
   func playOrPause() {
+    isPlaying.toggle()
+
+    if player.isPlaying {
+      player.pause()
+    } else {
+      if needsFileScheduled {
+        scheduleAudioFile()
+      }
+      player.play()
+    }
   }
 
   func skip(forwards: Bool) {
