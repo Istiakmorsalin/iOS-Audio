@@ -22,6 +22,7 @@
 		1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F126D128DB00419DB9 /* PlaybackValue.swift */; };
 		1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F226D128DB00419DB9 /* TimeConstant.swift */; };
 		1671575226D131AF004A7272 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671575126D131AF004A7272 /* Topu.mp3 */; };
+		167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B779E26D7CB7000A9E77E /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		1641B5F126D128DB00419DB9 /* PlaybackValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackValue.swift; sourceTree = "<group>"; };
 		1641B5F226D128DB00419DB9 /* TimeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConstant.swift; sourceTree = "<group>"; };
 		1671575126D131AF004A7272 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
+		167B779E26D7CB7000A9E77E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1641B5DD26D1282E00419DB9 /* PlayerView.swift */,
+				167B779E26D7CB7000A9E77E /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				1641B5C726D1267A00419DB9 /* AppMain.swift in Sources */,
 				1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */,
 				1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */,
+				167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */,
 				1641B5DE26D1282E00419DB9 /* PlayerView.swift in Sources */,
 				1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */,
 				1641B5F326D128DB00419DB9 /* PlayerViewModel.swift in Sources */,
