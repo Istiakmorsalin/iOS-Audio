@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161F17FB26D7EC09001E2B04 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F17FA26D7EC09001E2B04 /* APIManager.swift */; };
+		161F17FD26D7EC45001E2B04 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F17FC26D7EC45001E2B04 /* APIManagerProtocol.swift */; };
+		161F180026D7ECC7001E2B04 /* APIAlamofireDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F17FF26D7ECC7001E2B04 /* APIAlamofireDriver.swift */; };
 		1641B59526D123D300419DB9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59426D123D300419DB9 /* Persistence.swift */; };
 		1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59626D123D300419DB9 /* IstiakCast.xcdatamodeld */; };
 		1641B5A326D123D300419DB9 /* IstiakCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5A226D123D300419DB9 /* IstiakCastTests.swift */; };
@@ -21,8 +24,12 @@
 		1641B5F426D128DB00419DB9 /* PlayerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F026D128DB00419DB9 /* PlayerTime.swift */; };
 		1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F126D128DB00419DB9 /* PlaybackValue.swift */; };
 		1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F226D128DB00419DB9 /* TimeConstant.swift */; };
+		165B046526D7EF6C00C3D2C9 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046426D7EF6C00C3D2C9 /* JSONDecoder.swift */; };
 		1671575226D131AF004A7272 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671575126D131AF004A7272 /* Topu.mp3 */; };
 		167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B779E26D7CB7000A9E77E /* HomeView.swift */; };
+		66C0C6D7C4872138DD62735D /* Pods_IstiakCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */; };
+		951E4E156F753DE46F1D71AD /* Pods_IstiakCast_IstiakCastUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674725F4F2C7B2E24C4B657F /* Pods_IstiakCast_IstiakCastUITests.framework */; };
+		F7C2655A7CCF08ED075B72D8 /* Pods_IstiakCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9816B4993441376CB2E35EB9 /* Pods_IstiakCast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040DEE8840A83210BD82C265 /* Pods-IstiakCastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCastTests.debug.xcconfig"; path = "Target Support Files/Pods-IstiakCastTests/Pods-IstiakCastTests.debug.xcconfig"; sourceTree = "<group>"; };
+		161F17FA26D7EC09001E2B04 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		161F17FC26D7EC45001E2B04 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
+		161F17FF26D7ECC7001E2B04 /* APIAlamofireDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAlamofireDriver.swift; sourceTree = "<group>"; };
 		1641B58826D123D100419DB9 /* IstiakCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IstiakCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641B59226D123D300419DB9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1641B59426D123D300419DB9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -64,8 +75,17 @@
 		1641B5F026D128DB00419DB9 /* PlayerTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTime.swift; sourceTree = "<group>"; };
 		1641B5F126D128DB00419DB9 /* PlaybackValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackValue.swift; sourceTree = "<group>"; };
 		1641B5F226D128DB00419DB9 /* TimeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConstant.swift; sourceTree = "<group>"; };
+		165B046426D7EF6C00C3D2C9 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		1671575126D131AF004A7272 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
 		167B779E26D7CB7000A9E77E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IstiakCastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47F505507C90F949FF34D0E4 /* Pods-IstiakCast-IstiakCastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCast-IstiakCastUITests.release.xcconfig"; path = "Target Support Files/Pods-IstiakCast-IstiakCastUITests/Pods-IstiakCast-IstiakCastUITests.release.xcconfig"; sourceTree = "<group>"; };
+		54B98792958E565BCA1E3B43 /* Pods-IstiakCastTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCastTests.release.xcconfig"; path = "Target Support Files/Pods-IstiakCastTests/Pods-IstiakCastTests.release.xcconfig"; sourceTree = "<group>"; };
+		674725F4F2C7B2E24C4B657F /* Pods_IstiakCast_IstiakCastUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IstiakCast_IstiakCastUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		890A4F36FDF08CE32CEAEBC8 /* Pods-IstiakCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCast.release.xcconfig"; path = "Target Support Files/Pods-IstiakCast/Pods-IstiakCast.release.xcconfig"; sourceTree = "<group>"; };
+		9816B4993441376CB2E35EB9 /* Pods_IstiakCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IstiakCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF3DD90853D1915229DFCE25 /* Pods-IstiakCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCast.debug.xcconfig"; path = "Target Support Files/Pods-IstiakCast/Pods-IstiakCast.debug.xcconfig"; sourceTree = "<group>"; };
+		F2E53AA923FFDE8F81A297B9 /* Pods-IstiakCast-IstiakCastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IstiakCast-IstiakCastUITests.debug.xcconfig"; path = "Target Support Files/Pods-IstiakCast-IstiakCastUITests/Pods-IstiakCast-IstiakCastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C2655A7CCF08ED075B72D8 /* Pods_IstiakCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66C0C6D7C4872138DD62735D /* Pods_IstiakCastTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,12 +109,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				951E4E156F753DE46F1D71AD /* Pods_IstiakCast_IstiakCastUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161F17F826D7EB80001E2B04 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				161F17F926D7EBE7001E2B04 /* APIManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		161F17F926D7EBE7001E2B04 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				161F17FE26D7ECA2001E2B04 /* Drivers */,
+				161F17FA26D7EC09001E2B04 /* APIManager.swift */,
+				161F17FC26D7EC45001E2B04 /* APIManagerProtocol.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		161F17FE26D7ECA2001E2B04 /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				161F17FF26D7ECC7001E2B04 /* APIAlamofireDriver.swift */,
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
 		1641B57F26D123D000419DB9 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +149,8 @@
 				1641B5A126D123D300419DB9 /* IstiakCastTests */,
 				1641B5AC26D123D300419DB9 /* IstiakCastUITests */,
 				1641B58926D123D100419DB9 /* Products */,
+				823E7F7664881C49CB4B0334 /* Pods */,
+				6BDBE4B64CC9F9606640512E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +167,7 @@
 		1641B58A26D123D100419DB9 /* IstiakCast */ = {
 			isa = PBXGroup;
 			children = (
+				161F17F826D7EB80001E2B04 /* Managers */,
 				1641B5C626D1267A00419DB9 /* AppMain.swift */,
 				1641B5F726D128E400419DB9 /* Models */,
 				1641B5E626D1288500419DB9 /* Extensions */,
@@ -179,6 +231,7 @@
 			children = (
 				1641B5E226D1287500419DB9 /* Color+Additions.swift */,
 				1641B5E426D1288000419DB9 /* Image+Additions.swift */,
+				165B046426D7EF6C00C3D2C9 /* JSONDecoder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +247,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6BDBE4B64CC9F9606640512E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9816B4993441376CB2E35EB9 /* Pods_IstiakCast.framework */,
+				674725F4F2C7B2E24C4B657F /* Pods_IstiakCast_IstiakCastUITests.framework */,
+				274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		823E7F7664881C49CB4B0334 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF3DD90853D1915229DFCE25 /* Pods-IstiakCast.debug.xcconfig */,
+				890A4F36FDF08CE32CEAEBC8 /* Pods-IstiakCast.release.xcconfig */,
+				F2E53AA923FFDE8F81A297B9 /* Pods-IstiakCast-IstiakCastUITests.debug.xcconfig */,
+				47F505507C90F949FF34D0E4 /* Pods-IstiakCast-IstiakCastUITests.release.xcconfig */,
+				040DEE8840A83210BD82C265 /* Pods-IstiakCastTests.debug.xcconfig */,
+				54B98792958E565BCA1E3B43 /* Pods-IstiakCastTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +277,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1641B5B226D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCast" */;
 			buildPhases = (
+				7231E49A00F2E4FE3ABED586 /* [CP] Check Pods Manifest.lock */,
 				1641B58426D123D100419DB9 /* Sources */,
 				1641B58526D123D100419DB9 /* Frameworks */,
 				1641B58626D123D100419DB9 /* Resources */,
+				EB705FC8A049914B99CD4267 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,6 +296,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1641B5B526D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastTests" */;
 			buildPhases = (
+				FDCAD9F2BD3F201816F31834 /* [CP] Check Pods Manifest.lock */,
 				1641B59A26D123D300419DB9 /* Sources */,
 				1641B59B26D123D300419DB9 /* Frameworks */,
 				1641B59C26D123D300419DB9 /* Resources */,
@@ -236,9 +315,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1641B5B826D123D300419DB9 /* Build configuration list for PBXNativeTarget "IstiakCastUITests" */;
 			buildPhases = (
+				B99229301439E5B2ADBACF69 /* [CP] Check Pods Manifest.lock */,
 				1641B5A526D123D300419DB9 /* Sources */,
 				1641B5A626D123D300419DB9 /* Frameworks */,
 				1641B5A726D123D300419DB9 /* Resources */,
+				5D19D54BDDF9B000400CF22E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,22 +400,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5D19D54BDDF9B000400CF22E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IstiakCast-IstiakCastUITests/Pods-IstiakCast-IstiakCastUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IstiakCast-IstiakCastUITests/Pods-IstiakCast-IstiakCastUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IstiakCast-IstiakCastUITests/Pods-IstiakCast-IstiakCastUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7231E49A00F2E4FE3ABED586 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IstiakCast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B99229301439E5B2ADBACF69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IstiakCast-IstiakCastUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB705FC8A049914B99CD4267 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IstiakCast/Pods-IstiakCast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IstiakCast/Pods-IstiakCast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IstiakCast/Pods-IstiakCast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDCAD9F2BD3F201816F31834 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IstiakCastTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1641B58426D123D100419DB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161F17FB26D7EC09001E2B04 /* APIManager.swift in Sources */,
 				1641B5E326D1287500419DB9 /* Color+Additions.swift in Sources */,
 				1641B59526D123D300419DB9 /* Persistence.swift in Sources */,
 				1641B5C726D1267A00419DB9 /* AppMain.swift in Sources */,
 				1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */,
 				1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */,
+				161F17FD26D7EC45001E2B04 /* APIManagerProtocol.swift in Sources */,
 				167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */,
 				1641B5DE26D1282E00419DB9 /* PlayerView.swift in Sources */,
 				1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */,
 				1641B5F326D128DB00419DB9 /* PlayerViewModel.swift in Sources */,
 				1641B5E526D1288000419DB9 /* Image+Additions.swift in Sources */,
+				165B046526D7EF6C00C3D2C9 /* JSONDecoder.swift in Sources */,
 				1641B5F426D128DB00419DB9 /* PlayerTime.swift in Sources */,
+				161F180026D7ECC7001E2B04 /* APIAlamofireDriver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +687,7 @@
 		};
 		1641B5B326D123D300419DB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF3DD90853D1915229DFCE25 /* Pods-IstiakCast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -520,6 +709,7 @@
 		};
 		1641B5B426D123D300419DB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 890A4F36FDF08CE32CEAEBC8 /* Pods-IstiakCast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -541,6 +731,7 @@
 		};
 		1641B5B626D123D300419DB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 040DEE8840A83210BD82C265 /* Pods-IstiakCastTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -562,6 +753,7 @@
 		};
 		1641B5B726D123D300419DB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54B98792958E565BCA1E3B43 /* Pods-IstiakCastTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -583,6 +775,7 @@
 		};
 		1641B5B926D123D300419DB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E53AA923FFDE8F81A297B9 /* Pods-IstiakCast-IstiakCastUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -602,6 +795,7 @@
 		};
 		1641B5BA26D123D300419DB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47F505507C90F949FF34D0E4 /* Pods-IstiakCast-IstiakCastUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

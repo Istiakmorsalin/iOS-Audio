@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.0.5)
+  - Cashier (1.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-rc.2)
+  - Cashier (~> 1.0.1)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Cashier
+
+SPEC CHECKSUMS:
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Cashier: 434b2fca5186af7070d619cc9aa6a2fc6d20daa7
+
+PODFILE CHECKSUM: 0b33b64c076f959e49ebe104574c4c4787f92290
+
+COCOAPODS: 1.10.2
