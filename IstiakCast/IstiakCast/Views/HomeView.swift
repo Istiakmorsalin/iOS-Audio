@@ -11,15 +11,22 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
-        List {
-          HStack {
-            Text("AvaudioEngine").onTapGesture {
-                print("AvaudioEngine")
-            }
-            Text("AvPlayer").onTapGesture {
-                print("AvPlayer")
-            }
-          }
+        NavigationView {
+          VStack {
+            NavigationLink(
+                destination: PlayerView(),
+                label: {
+                    Text("AvAudioEngine")
+                })
+            Spacer()
+            NavigationLink(
+                destination: PlayerView(),
+                label: {
+                    Text("AvPlayer")
+                })
+        
+          }.frame(width: 400, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+          .navigationBarTitle("IstiakCast")
         }
     }
 }
@@ -27,9 +34,6 @@ struct HomeView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .previewLayout(PreviewLayout.sizeThatFits)
-            .padding()
-            .previewDisplayName("Default preview")
     }
 }
 
