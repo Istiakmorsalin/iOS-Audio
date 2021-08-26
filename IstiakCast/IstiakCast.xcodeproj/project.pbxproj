@@ -34,6 +34,7 @@
 		165B047626D7FACA00C3D2C9 /* HomeClipsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047526D7FACA00C3D2C9 /* HomeClipsInteractor.swift */; };
 		165B047826D7FB3700C3D2C9 /* HomeClipsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047726D7FB3700C3D2C9 /* HomeClipsListModels.swift */; };
 		165B047A26D7FB7700C3D2C9 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047926D7FB7700C3D2C9 /* Clip.swift */; };
+		165B047C26D807CA00C3D2C9 /* HomeSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047B26D807CA00C3D2C9 /* HomeSceneView.swift */; };
 		1671575226D131AF004A7272 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671575126D131AF004A7272 /* Topu.mp3 */; };
 		167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B779E26D7CB7000A9E77E /* HomeView.swift */; };
 		66C0C6D7C4872138DD62735D /* Pods_IstiakCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */; };
@@ -94,6 +95,7 @@
 		165B047526D7FACA00C3D2C9 /* HomeClipsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsInteractor.swift; sourceTree = "<group>"; };
 		165B047726D7FB3700C3D2C9 /* HomeClipsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsListModels.swift; sourceTree = "<group>"; };
 		165B047926D7FB7700C3D2C9 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
+		165B047B26D807CA00C3D2C9 /* HomeSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneView.swift; sourceTree = "<group>"; };
 		1671575126D131AF004A7272 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
 		167B779E26D7CB7000A9E77E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IstiakCastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 			children = (
 				1641B5DD26D1282E00419DB9 /* PlayerView.swift */,
 				167B779E26D7CB7000A9E77E /* HomeView.swift */,
+				165B047B26D807CA00C3D2C9 /* HomeSceneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				165B047426D7FAB500C3D2C9 /* HomeClipsRouter.swift in Sources */,
+				165B047C26D807CA00C3D2C9 /* HomeSceneView.swift in Sources */,
 				161F17FB26D7EC09001E2B04 /* APIManager.swift in Sources */,
 				1641B5E326D1287500419DB9 /* Color+Additions.swift in Sources */,
 				1641B59526D123D300419DB9 /* Persistence.swift in Sources */,

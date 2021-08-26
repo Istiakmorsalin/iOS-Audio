@@ -20,7 +20,7 @@ struct HomeView: View {
                 })
             Spacer()
             NavigationLink(
-                destination: PlayerView(),
+                destination: HomeViewScene(),
                 label: {
                     Text("AvPlayer")
                 })
