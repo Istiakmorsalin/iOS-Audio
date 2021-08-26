@@ -45,8 +45,8 @@ public struct APIEndpoint: RawRepresentable, Equatable, Hashable {
     //
     // MARK: - THIS ARE ENDPOINTS
     //
-    /// `Create User`
-    public static let createUser = APIEndpoint(rawValue: "/api/users")
+    /// `get All clips`
+    public static let getAllClips = APIEndpoint(rawValue: "/api/v1/projects/DG2hZB09UGec39fqB127ZQtt")
 
     
     public let rawValue: String

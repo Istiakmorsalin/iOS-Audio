@@ -25,6 +25,15 @@
 		1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F126D128DB00419DB9 /* PlaybackValue.swift */; };
 		1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5F226D128DB00419DB9 /* TimeConstant.swift */; };
 		165B046526D7EF6C00C3D2C9 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046426D7EF6C00C3D2C9 /* JSONDecoder.swift */; };
+		165B046A26D7F88500C3D2C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046926D7F88500C3D2C9 /* HomeViewController.swift */; };
+		165B046C26D7F91B00C3D2C9 /* HomeClipsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046B26D7F91B00C3D2C9 /* HomeClipsCell.swift */; };
+		165B046E26D7FA1200C3D2C9 /* HomeClipsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046D26D7FA1200C3D2C9 /* HomeClipsHeaderView.swift */; };
+		165B047026D7FA9000C3D2C9 /* HomeClipsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B046F26D7FA9000C3D2C9 /* HomeClipsPresenter.swift */; };
+		165B047226D7FAA400C3D2C9 /* HomeClipsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047126D7FAA400C3D2C9 /* HomeClipsWorker.swift */; };
+		165B047426D7FAB500C3D2C9 /* HomeClipsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047326D7FAB500C3D2C9 /* HomeClipsRouter.swift */; };
+		165B047626D7FACA00C3D2C9 /* HomeClipsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047526D7FACA00C3D2C9 /* HomeClipsInteractor.swift */; };
+		165B047826D7FB3700C3D2C9 /* HomeClipsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047726D7FB3700C3D2C9 /* HomeClipsListModels.swift */; };
+		165B047A26D7FB7700C3D2C9 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B047926D7FB7700C3D2C9 /* Clip.swift */; };
 		1671575226D131AF004A7272 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1671575126D131AF004A7272 /* Topu.mp3 */; };
 		167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B779E26D7CB7000A9E77E /* HomeView.swift */; };
 		66C0C6D7C4872138DD62735D /* Pods_IstiakCastTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */; };
@@ -76,6 +85,15 @@
 		1641B5F126D128DB00419DB9 /* PlaybackValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackValue.swift; sourceTree = "<group>"; };
 		1641B5F226D128DB00419DB9 /* TimeConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConstant.swift; sourceTree = "<group>"; };
 		165B046426D7EF6C00C3D2C9 /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		165B046926D7F88500C3D2C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		165B046B26D7F91B00C3D2C9 /* HomeClipsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsCell.swift; sourceTree = "<group>"; };
+		165B046D26D7FA1200C3D2C9 /* HomeClipsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsHeaderView.swift; sourceTree = "<group>"; };
+		165B046F26D7FA9000C3D2C9 /* HomeClipsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsPresenter.swift; sourceTree = "<group>"; };
+		165B047126D7FAA400C3D2C9 /* HomeClipsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsWorker.swift; sourceTree = "<group>"; };
+		165B047326D7FAB500C3D2C9 /* HomeClipsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsRouter.swift; sourceTree = "<group>"; };
+		165B047526D7FACA00C3D2C9 /* HomeClipsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsInteractor.swift; sourceTree = "<group>"; };
+		165B047726D7FB3700C3D2C9 /* HomeClipsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeClipsListModels.swift; sourceTree = "<group>"; };
+		165B047926D7FB7700C3D2C9 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 		1671575126D131AF004A7272 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
 		167B779E26D7CB7000A9E77E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		274C83F8A9351BAC7D30EB0B /* Pods_IstiakCastTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IstiakCastTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +185,7 @@
 		1641B58A26D123D100419DB9 /* IstiakCast */ = {
 			isa = PBXGroup;
 			children = (
+				165B046626D7F7F900C3D2C9 /* Scenes */,
 				161F17F826D7EB80001E2B04 /* Managers */,
 				1641B5C626D1267A00419DB9 /* AppMain.swift */,
 				1641B5F726D128E400419DB9 /* Models */,
@@ -243,8 +262,32 @@
 				1641B5F026D128DB00419DB9 /* PlayerTime.swift */,
 				1641B5EF26D128DB00419DB9 /* PlayerViewModel.swift */,
 				1641B5F226D128DB00419DB9 /* TimeConstant.swift */,
+				165B047926D7FB7700C3D2C9 /* Clip.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		165B046626D7F7F900C3D2C9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				165B046826D7F86E00C3D2C9 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		165B046826D7F86E00C3D2C9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				165B046926D7F88500C3D2C9 /* HomeViewController.swift */,
+				165B046B26D7F91B00C3D2C9 /* HomeClipsCell.swift */,
+				165B046D26D7FA1200C3D2C9 /* HomeClipsHeaderView.swift */,
+				165B046F26D7FA9000C3D2C9 /* HomeClipsPresenter.swift */,
+				165B047126D7FAA400C3D2C9 /* HomeClipsWorker.swift */,
+				165B047326D7FAB500C3D2C9 /* HomeClipsRouter.swift */,
+				165B047526D7FACA00C3D2C9 /* HomeClipsInteractor.swift */,
+				165B047726D7FB3700C3D2C9 /* HomeClipsListModels.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		6BDBE4B64CC9F9606640512E /* Frameworks */ = {
@@ -508,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165B047426D7FAB500C3D2C9 /* HomeClipsRouter.swift in Sources */,
 				161F17FB26D7EC09001E2B04 /* APIManager.swift in Sources */,
 				1641B5E326D1287500419DB9 /* Color+Additions.swift in Sources */,
 				1641B59526D123D300419DB9 /* Persistence.swift in Sources */,
@@ -515,12 +559,20 @@
 				1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */,
 				1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */,
 				161F17FD26D7EC45001E2B04 /* APIManagerProtocol.swift in Sources */,
+				165B047026D7FA9000C3D2C9 /* HomeClipsPresenter.swift in Sources */,
+				165B047A26D7FB7700C3D2C9 /* Clip.swift in Sources */,
 				167B779F26D7CB7000A9E77E /* HomeView.swift in Sources */,
+				165B047826D7FB3700C3D2C9 /* HomeClipsListModels.swift in Sources */,
 				1641B5DE26D1282E00419DB9 /* PlayerView.swift in Sources */,
 				1641B5F526D128DB00419DB9 /* PlaybackValue.swift in Sources */,
+				165B046E26D7FA1200C3D2C9 /* HomeClipsHeaderView.swift in Sources */,
 				1641B5F326D128DB00419DB9 /* PlayerViewModel.swift in Sources */,
+				165B046A26D7F88500C3D2C9 /* HomeViewController.swift in Sources */,
+				165B047626D7FACA00C3D2C9 /* HomeClipsInteractor.swift in Sources */,
+				165B047226D7FAA400C3D2C9 /* HomeClipsWorker.swift in Sources */,
 				1641B5E526D1288000419DB9 /* Image+Additions.swift in Sources */,
 				165B046526D7EF6C00C3D2C9 /* JSONDecoder.swift in Sources */,
+				165B046C26D7F91B00C3D2C9 /* HomeClipsCell.swift in Sources */,
 				1641B5F426D128DB00419DB9 /* PlayerTime.swift in Sources */,
 				161F180026D7ECC7001E2B04 /* APIAlamofireDriver.swift in Sources */,
 			);
