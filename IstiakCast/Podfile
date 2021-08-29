@@ -6,6 +6,7 @@ target 'IstiakCast' do
   use_frameworks!
   pod 'Alamofire', '~> 5.0.0-rc.2'
   pod 'Cashier', '~> 1.0.1'
+  pod 'Kingfisher', '~> 6.3.1'
   # Pods for IstiakCast
 
   target 'IstiakCastTests' do
