@@ -92,10 +92,9 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     private func buildMockData() {
         let podcast1 = Podcast(name: "Brain Sparks", description: "This podcast is hosted by usability and UI design expert, Jared Spool", category: "Design", source: "", thumbnailImageUrl: "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg")
         
-        audioClips.append(podcast1)
-        audioClips.append(podcast1)
-        audioClips.append(podcast1)
-        audioClips.append(podcast1)
+        for i in 1...10 {
+            self.audioClips.append(podcast1)
+        }
         self.tableView.reloadData()
     }
     
@@ -220,7 +219,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 100
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

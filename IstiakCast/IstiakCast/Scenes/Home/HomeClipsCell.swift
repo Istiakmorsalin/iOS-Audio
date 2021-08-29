@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol HomeClipsCellItemProtocol: AnyObject {
     func configure(image: String, title: String, detailString: String?, alreadyPlayed: Bool, isPremium: Bool)
@@ -41,19 +42,18 @@ class HomeClipsCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let l = UILabel(frame: .zero)
+        l.font = l.font.withSize(16)
         l.clipsToBounds = true
         l.textColor = .black
-        l.numberOfLines = 3
+        l.numberOfLines = 1
         return l
     }()
     
     private let detailLabel: UILabel = {
         let l = UILabel(frame: .zero)
-        
+        l.font = l.font.withSize(14)
         l.clipsToBounds = true
-        
-        l.adjustsFontSizeToFitWidth = true
-        l.numberOfLines = 1
+        l.numberOfLines = 0
         return l
     }()
     
@@ -184,8 +184,9 @@ extension HomeClipsCell: HomeClipsCellItemProtocol {
         detailLabel.text = detailString
     
         detailLabelConstraint.constant = 5
-        languageImageView.isHidden = false
+        languageImageView.isHidden = true
         
+        imgView.kf.setImage(with: URL(string: image))
     }
     
     func setIsPlayingCurrent(_ bool: Bool) {
