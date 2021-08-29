@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 struct HomeView: View {
@@ -20,10 +21,11 @@ struct HomeView: View {
                 })
             Spacer()
             NavigationLink(
-                destination: HomeViewScene(),
+                destination: HomeViewControllerView(),
                 label: {
                     Text("AvPlayer")
                 })
+
         
           }.frame(width: 400, height: 120, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
           .navigationBarTitle("IstiakCast")

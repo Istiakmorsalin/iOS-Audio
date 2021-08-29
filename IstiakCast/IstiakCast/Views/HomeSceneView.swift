@@ -8,14 +8,15 @@
 import SwiftUI
 import UIKit
 
-struct HomeViewScene: UIViewControllerRepresentable {
+struct HomeViewControllerView: UIViewControllerRepresentable {
+
+
     func makeUIViewController(context: Context) -> HomeViewController {
-        let homeScene = HomeViewController()
-        return homeScene
-    }
-    
+            return HomeViewController()
+        }
+
     func updateUIViewController(_ uiViewController: HomeViewController, context: Context) {
+        // update code
     }
-    
-    typealias UIViewControllerType = HomeViewController
+
 }

@@ -11,17 +11,35 @@ protocol HomeViewControllerDisplayLogic: AnyObject {
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel)
 }
 
+struct Podcast {
+    var name: String
+    var description: String
+    var category: String
+    var source: String
+    var thumbnailImageUrl: String
+    
+    init(name: String, description: String, category: String, source: String, thumbnailImageUrl: String) {
+        self.name = name
+        self.description = description
+        self.category = category
+        self.source = source
+        self.thumbnailImageUrl = thumbnailImageUrl
+    }
+}
+
 class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     
     var interactor: HomeClipsBusinessLogic?
     var router: (NSObjectProtocol & HomeClipsRouterRoutingLogic & HomeClipsDataPassing)?
-    private var audioClips: [Clip] = []
+//    private var audioClips: [Clip] = []
+    
+    private var audioClips: [Podcast] = []
     
     public let tableView: UITableView = {
         let t = UITableView(frame: .zero, style: .grouped)
         t.backgroundColor = .clear
         t.tableFooterView = UIView()
-        t.separatorStyle = .none
+        t.separatorStyle = .singleLine
         t.separatorInset = .zero
         t.alwaysBounceVertical = true
         t.showsVerticalScrollIndicator = false
@@ -39,6 +57,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     private var page: Int = 1
     private var per: Int = 20
     private var isLoaded: Bool = false
+//    private let emptyStateView = EmptyResultView(frame: .zero)
 
     
     // MARK: Object lifecycle
@@ -70,6 +89,17 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
     
     
+    private func buildMockData() {
+        let podcast1 = Podcast(name: "Brain Sparks", description: "This podcast is hosted by usability and UI design expert, Jared Spool", category: "Design", source: "", thumbnailImageUrl: "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg")
+        
+        audioClips.append(podcast1)
+        audioClips.append(podcast1)
+        audioClips.append(podcast1)
+        audioClips.append(podcast1)
+        self.tableView.reloadData()
+    }
+    
+    
     // MARK: Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,11 +112,17 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
     
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel) {
-        DispatchQueue.main.async {
-            self.audioClips = viewModel.homeClips
-            self.isLoaded = true
-            self.tableView.reloadData()
-        }
+//        self.emptyStateView.isHidden = true
+//        DispatchQueue.main.async {
+//            guard viewModel.errorDescription == nil else {
+//                self.tableView.reloadData()
+//                return
+//            }
+//            self.audioClips = viewModel.homeClips
+//            self.isLoaded = true
+//            self.tableView.reloadData()
+//            self.emptyStateView.isHidden = !viewModel.homeClips.isEmpty
+//        }
     }
     
     // MARK: View lifecycle
@@ -96,9 +132,10 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         
 //        view.backgroundColor = UIColor(r: 246, g: 248, b: 250)
 
-        // Request the favorite audio clips
-        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
-        interactor?.fetchHomeClips(request: requestHomeAudioClips)
+//        // Request the favorite audio clips
+//        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
+//        interactor?.fetchHomeClips(request: requestHomeAudioClips)
+        
         
         // Setup views
         view.addSubview(tableView)
@@ -110,6 +147,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         tableView.dataSource = self
         
         updateCurrentPlayingUI()
+        buildMockData()
     }
 
     
@@ -172,7 +210,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeClipsCell.self)", for: indexPath) as? HomeClipsCell else { fatalError() }
         let clip = audioClips[indexPath.row]
         
-        cell.configure(image: "", title: clip.title, detailString: clip.body, alreadyPlayed: false, isPremium: false)
+        cell.configure(image: clip.thumbnailImageUrl, title: clip.name, detailString: clip.description, alreadyPlayed: false, isPremium: false)
         
         return cell
     }
@@ -182,7 +220,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 120
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
