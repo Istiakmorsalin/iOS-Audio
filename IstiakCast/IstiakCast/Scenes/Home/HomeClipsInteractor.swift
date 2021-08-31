@@ -25,7 +25,7 @@ class HomeClipsInteractor: HomeClipsBusinessLogic, HomeClipsDataStore {
     
     func fetchHomeClips(request: HomeClipsListModels.HomeClips.Request) {
        
-        let endpoint = APIEndpoint(rawValue: "/api/v4/user/audio_clips/listened")
+        let endpoint = APIEndpoint(rawValue: "")
         
         let apiRequest = APIRequest(endpoint: endpoint, method: .get, isCacheAllowed: false, parameters: ["per": request.per, "page": request.page])
         APIManager.shared.callAPI(of: [Clip].self, decoder: .istiakCast, withRequest: apiRequest) { (result) in
