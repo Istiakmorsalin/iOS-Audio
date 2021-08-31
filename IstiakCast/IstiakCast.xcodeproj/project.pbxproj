@@ -14,7 +14,6 @@
 		1624356026DBE41C009240E5 /* IstiakPlayerWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624355F26DBE41C009240E5 /* IstiakPlayerWorker.swift */; };
 		1624356226DBE424009240E5 /* IstiakPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356126DBE424009240E5 /* IstiakPlayerManager.swift */; };
 		1624356426DBE42C009240E5 /* IstiakPlayerCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356326DBE42C009240E5 /* IstiakPlayerCacheManager.swift */; };
-		1624356826DBE630009240E5 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356726DBE630009240E5 /* Clip.swift */; };
 		1624356A26DBE63B009240E5 /* AudioClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356926DBE63A009240E5 /* AudioClip.swift */; };
 		1624356C26DBE643009240E5 /* ProviderClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356B26DBE643009240E5 /* ProviderClip.swift */; };
 		1624356E26DBE6E0009240E5 /* AdClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624356D26DBE6E0009240E5 /* AdClip.swift */; };
@@ -28,6 +27,7 @@
 		1624357E26DBE961009240E5 /* ClipsMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624357D26DBE961009240E5 /* ClipsMeta.swift */; };
 		1624358026DBE9AA009240E5 /* EditorClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624357F26DBE9AA009240E5 /* EditorClip.swift */; };
 		1624358626DBEF3A009240E5 /* MediaCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1624358526DBEF3A009240E5 /* MediaCommandCenter.swift */; };
+		163DE8B426DE83CD00CDADFD /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DE8B326DE83CD00CDADFD /* Clip.swift */; };
 		1641B59526D123D300419DB9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59426D123D300419DB9 /* Persistence.swift */; };
 		1641B59826D123D300419DB9 /* IstiakCast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1641B59626D123D300419DB9 /* IstiakCast.xcdatamodeld */; };
 		1641B5A326D123D300419DB9 /* IstiakCastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1641B5A226D123D300419DB9 /* IstiakCastTests.swift */; };
@@ -87,7 +87,6 @@
 		1624355F26DBE41C009240E5 /* IstiakPlayerWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IstiakPlayerWorker.swift; sourceTree = "<group>"; };
 		1624356126DBE424009240E5 /* IstiakPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IstiakPlayerManager.swift; sourceTree = "<group>"; };
 		1624356326DBE42C009240E5 /* IstiakPlayerCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IstiakPlayerCacheManager.swift; sourceTree = "<group>"; };
-		1624356726DBE630009240E5 /* Clip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Clip.swift; path = "../../../../../../listen-to-news-v2/Listen-to-News/Models/Clip.swift"; sourceTree = "<group>"; };
 		1624356926DBE63A009240E5 /* AudioClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioClip.swift; sourceTree = "<group>"; };
 		1624356B26DBE643009240E5 /* ProviderClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderClip.swift; sourceTree = "<group>"; };
 		1624356D26DBE6E0009240E5 /* AdClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdClip.swift; sourceTree = "<group>"; };
@@ -101,6 +100,7 @@
 		1624357D26DBE961009240E5 /* ClipsMeta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipsMeta.swift; sourceTree = "<group>"; };
 		1624357F26DBE9AA009240E5 /* EditorClip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorClip.swift; sourceTree = "<group>"; };
 		1624358526DBEF3A009240E5 /* MediaCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCommandCenter.swift; sourceTree = "<group>"; };
+		163DE8B326DE83CD00CDADFD /* Clip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
 		1641B58826D123D100419DB9 /* IstiakCast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IstiakCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1641B59226D123D300419DB9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1641B59426D123D300419DB9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -324,8 +324,8 @@
 				1624357326DBE833009240E5 /* Category.swift */,
 				1624356B26DBE643009240E5 /* ProviderClip.swift */,
 				1624356926DBE63A009240E5 /* AudioClip.swift */,
-				1624356726DBE630009240E5 /* Clip.swift */,
 				1641B5F126D128DB00419DB9 /* PlaybackValue.swift */,
+				163DE8B326DE83CD00CDADFD /* Clip.swift */,
 				1641B5F026D128DB00419DB9 /* PlayerTime.swift */,
 				1641B5EF26D128DB00419DB9 /* PlayerViewModel.swift */,
 				1641B5F226D128DB00419DB9 /* TimeConstant.swift */,
@@ -638,9 +638,9 @@
 				1641B5F626D128DB00419DB9 /* TimeConstant.swift in Sources */,
 				161F17FD26D7EC45001E2B04 /* APIManagerProtocol.swift in Sources */,
 				165B047026D7FA9000C3D2C9 /* HomeClipsPresenter.swift in Sources */,
-				1624356826DBE630009240E5 /* Clip.swift in Sources */,
 				1624357026DBE7D5009240E5 /* DataCacheManager.swift in Sources */,
 				165B047A26D7FB7700C3D2C9 /* IstiakClip.swift in Sources */,
+				163DE8B426DE83CD00CDADFD /* Clip.swift in Sources */,
 				165B047E26D8085300C3D2C9 /* EmptyResultView.swift in Sources */,
 				1624356426DBE42C009240E5 /* IstiakPlayerCacheManager.swift in Sources */,
 				1624357826DBE8C8009240E5 /* Constants.swift in Sources */,
