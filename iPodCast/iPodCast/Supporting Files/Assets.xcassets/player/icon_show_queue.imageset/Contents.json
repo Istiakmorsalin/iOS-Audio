@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "icon_show_queue.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

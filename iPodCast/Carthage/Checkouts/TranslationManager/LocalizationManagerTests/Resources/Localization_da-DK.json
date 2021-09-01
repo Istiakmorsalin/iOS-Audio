@@ -1,0 +1,26 @@
+{
+    "data": {
+        "default": {
+            "successKey": "DenmarkSuccess",
+            "keyys": "ffw",
+            "testURL": "www.test.com"
+        },
+        "other": {
+            "otherKey": "DenmarkFallbackValue"
+        }
+    },
+    "meta": {
+        "language": {
+            "id": 11,
+            "name": "Denmark",
+            "locale": "da-DK",
+            "direction": "LRM",
+            "is_default": false,
+            "is_best_fit": false
+        },
+        "platform": {
+            "id": 24,
+            "slug": "mobile"
+        }
+    }
+}

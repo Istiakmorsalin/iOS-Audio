@@ -1,0 +1,26 @@
+{
+    "data": {
+        "default": {
+            "successKey": "Success",
+            "keyys": "ffw",
+            "testURL": "www.test.com"
+        },
+        "other": {
+            "otherKey": "FallbackValue"
+        }
+    },
+    "meta": {
+        "language": {
+            "id": 11,
+            "name": "English (UK)",
+            "locale": "en-GB",
+            "direction": "LRM",
+            "is_default": true,
+            "is_best_fit": false
+        },
+        "platform": {
+            "id": 24,
+            "slug": "mobile"
+        }
+    }
+}

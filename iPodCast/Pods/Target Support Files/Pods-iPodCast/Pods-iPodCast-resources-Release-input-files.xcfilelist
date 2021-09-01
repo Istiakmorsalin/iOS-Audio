@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-iPodCast/Pods-iPodCast-resources.sh
+${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.6.1_static/GoogleCast.framework/GoogleCastCoreResources.bundle
+${PODS_ROOT}/google-cast-sdk-no-bluetooth/GoogleCastSDK-ios-4.6.1_static/GoogleCast.framework/GoogleCastUIResources.bundle

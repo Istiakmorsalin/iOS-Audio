@@ -1,0 +1,22 @@
+#Firebase
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseCrashlyticsBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseMessagingBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebasePerformanceBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseProtobufBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseGoogleSignInBinary.json"
+
+#Nodes
+github "nstack-io/nstack-ios-sdk" ~> 5.0
+github "nodes-ios/Cashier"
+github "nodes-ios/Codemine" ~> 1.1
+
+#3rd party
+github "Juanpe/SkeletonView"
+github "airbnb/lottie-ios" ~> 3.0.1
+github "onevcat/Kingfisher" ~> 5.0
+github "BranchMetrics/ios-branch-deep-linking"
+github "mixpanel/mixpanel-swift"
+github "Alamofire/Alamofire" ~> 5.2.0
+github "Daltron/NotificationBanner" "master"
