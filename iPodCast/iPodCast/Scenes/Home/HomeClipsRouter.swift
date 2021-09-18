@@ -28,8 +28,8 @@ class HomeClipsRouter: NSObject, HomeClipsRouterRoutingLogic, HomeClipsDataPassi
     
     func openMinimumPlayer() {
         DispatchQueue.main.async {
-//            guard let homeview = self.viewController as? HomeViewController else { return }
-//            homeview.showPlayer(withPosition: .partiallyOpen)
+            guard let homeview = self.viewController else { return }
+            homeview.showPlayer(withPosition: .partiallyOpen)
         }
     }
 }

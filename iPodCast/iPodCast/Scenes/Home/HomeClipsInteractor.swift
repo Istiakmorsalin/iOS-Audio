@@ -10,6 +10,7 @@ import UIKit
 protocol HomeClipsBusinessLogic {
     func fetchHomeClips(request: HomeClipsListModels.HomeClips.Request)
     func playHomeClips(request: CollectionDetail.PlayClips.Request)
+    func playFavoriteClips(request: CollectionDetail.PlayClips.Request)
 }
 
 protocol HomeClipsDataStore {
@@ -44,6 +45,14 @@ class HomeClipsInteractor: HomeClipsBusinessLogic, HomeClipsDataStore {
     }
     
     func playHomeClips(request: CollectionDetail.PlayClips.Request) {
+        // Play the clips
+        IstiakPlayerManager.shared.play(withClips: request.clips, startClip: nil, endClip: nil, isTimeSlot: false, overwrite: true)
+        //adjust playback speed
+        IstiakPlayerManager.shared.changePlaybackSpeed(atRate: IstiakPlayerManager.shared.getCurrentPlaybackSpeed())
+    }
+    
+    func playFavoriteClips(request: CollectionDetail.PlayClips.Request) {
+        
         // Play the clips
         IstiakPlayerManager.shared.play(withClips: request.clips, startClip: nil, endClip: nil, isTimeSlot: false, overwrite: true)
         //adjust playback speed

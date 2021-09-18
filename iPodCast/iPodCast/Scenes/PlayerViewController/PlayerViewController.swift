@@ -19,6 +19,13 @@ class PlayerViewController: UIViewController, PlayerDisplayLogic {
             view.backgroundColor = .white
         }
     }
+    
+    var hasTopNotch: Bool {
+        guard let topPadding = UIApplication.shared.windows.first?.safeAreaInsets.top, topPadding > 24 else {
+            return false
+        }
+        return true
+    }
         
     // MARK: Player Minimised
     private(set) var minimisedView: UIView = {
@@ -55,7 +62,7 @@ class PlayerViewController: UIViewController, PlayerDisplayLogic {
         let s = UIStackView(frame: .zero)
         s.alignment = UIStackView.Alignment.center
         s.distribution = UIStackView.Distribution.equalSpacing
-        s.spacing = 10
+        s.spacing = 20.0
         s.axis = .vertical
         return s
     }()
@@ -249,6 +256,8 @@ class PlayerViewController: UIViewController, PlayerDisplayLogic {
         
         // MARK: Minimised Player
         
+        // MARK: Minimised Player
+        
         minimisedView.translatesAutoresizingMaskIntoConstraints = false
         minimisedViewTop = minimisedView.topAnchor.constraint(equalTo: view.topAnchor)
         minimisedViewTop.isActive = true
@@ -309,7 +318,7 @@ class PlayerViewController: UIViewController, PlayerDisplayLogic {
         playerProgressView.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
         playerProgressView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         playerProgressView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        playerProgressView.bottomAnchor.constraint(equalTo: playerControlView.topAnchor, constant: -10).isActive = true
+        playerProgressView.bottomAnchor.constraint(equalTo: playerControlView.topAnchor, constant: -12).isActive = true
         playerProgressView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         playerProgressView.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
@@ -317,7 +326,7 @@ class PlayerViewController: UIViewController, PlayerDisplayLogic {
         playerControlView.topAnchor.constraint(equalTo: playerProgressView.bottomAnchor, constant: 0).isActive = true
         playerControlView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         playerControlView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        playerControlView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 5).isActive = true
+        playerControlView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: hasTopNotch ? -20 : -3).isActive = true
         playerControlView.heightAnchor.constraint(greaterThanOrEqualToConstant: 130).isActive = true
         playerControlView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         playerControlView.setContentHuggingPriority(.defaultHigh, for: .vertical)

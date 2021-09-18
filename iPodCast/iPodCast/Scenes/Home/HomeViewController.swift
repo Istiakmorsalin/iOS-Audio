@@ -55,6 +55,13 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     
     private var drawerView: DrawerView!
     private let playerVC = PlayerViewController()
+    
+    var hasTopNotch: Bool {
+        guard let topPadding = UIApplication.shared.windows.first?.safeAreaInsets.top, topPadding > 24 else {
+            return false
+        }
+        return true
+    }
 
     // Pagination
     private var page: Int = 1
@@ -93,7 +100,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     private func setupProgressBar() {
         let xAxis = self.view.center.x
         let yAxis = self.view.center.y
-        let frame = CGRect(x: (xAxis), y: (yAxis), width: 45, height: 45)
+        let frame = CGRect(x: (xAxis - 50), y: (yAxis - 200), width: 100, height: 100)
         activityIndicator = NVActivityIndicatorView(frame: frame)
         activityIndicator.type = . ballScale // add your type
         activityIndicator.color = UIColor.brown // add your color
@@ -108,9 +115,29 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-//            self?.setupDrawerView()
+            self?.setupDrawerView()
             self?.drawerView.setPosition(position, animated: true)
         }
+    }
+    
+    private func setupDrawerView() {
+        
+        drawerView = self.addDrawerView(withViewController: playerVC)
+        drawerView.delegate = self
+        playerVC.drawerView = drawerView
+
+        drawerView.clipsToBounds = true
+        drawerView.snapPositions = [.partiallyOpen, .open]
+        drawerView.insetAdjustmentBehavior = .automatic
+        drawerView.cornerRadius = 0
+        drawerView.topMargin = 25 + (hasTopNotch ? 50 : 0)
+        drawerView.partiallyOpenHeight = hasTopNotch ? 115 : 107.5
+        drawerView.collapsedHeight = 0
+        drawerView.position = .closed
+        drawerView.backgroundEffect = nil
+        drawerView.backgroundColor = .clear
+
+        view.bringSubviewToFront(self.view)
     }
 
     private func buildMockData() {
@@ -296,7 +323,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         print("selected indexpath ---->>> \(indexPath.row)")
-
+        let sortedClips = Array(audioClips.suffix(from: indexPath.row))
+        
+        // Play audio clip
+        let request = CollectionDetail.PlayClips.Request(
+            clips: sortedClips,
+            startClip: nil,
+            endClip: nil,
+            upcomingClips: [],
+            isTimeslot: false,
+            timeslotAd: nil
+        )
+        
+        self.interactor?.playFavoriteClips(request: request)
+        
+        self.router?.openMinimumPlayer()
     }
 }
 
