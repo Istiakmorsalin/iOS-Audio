@@ -111,6 +111,8 @@
 		16E6422526E00E2900507927 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16E6421F26E00E2900507927 /* GoogleService-Info.plist */; };
 		16E6422626E00E2900507927 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E6422026E00E2900507927 /* LaunchScreen.storyboard */; };
 		16E6422726E00E2900507927 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16E6422226E00E2900507927 /* Topu.mp3 */; };
+		16EE7F7F26F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */; };
+		16EE7F8026F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +129,7 @@
 				16B5FBF026E01010005DC11C /* PromisesObjC.xcframework in Embed Frameworks */,
 				16B5FBE426E00FF9005DC11C /* AppAuth.xcframework in Embed Frameworks */,
 				16B5FBEA26E01005005DC11C /* Kingfisher.xcframework in Embed Frameworks */,
+				16EE7F8026F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Embed Frameworks */,
 				16B5FBF626E01015005DC11C /* SkeletonView.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -237,6 +240,7 @@
 		16E6422126E00E2900507927 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16E6422226E00E2900507927 /* Topu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Topu.mp3; sourceTree = "<group>"; };
 		16E6422326E00E2900507927 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NVActivityIndicatorView.xcframework; path = Carthage/Build/NVActivityIndicatorView.xcframework; sourceTree = "<group>"; };
 		E85BEE872957651F6494FB56 /* Pods-iPodCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPodCast.debug.xcconfig"; path = "Target Support Files/Pods-iPodCast/Pods-iPodCast.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +256,7 @@
 				16B5FBEF26E01010005DC11C /* PromisesObjC.xcframework in Frameworks */,
 				16B5FBE326E00FF9005DC11C /* AppAuth.xcframework in Frameworks */,
 				16B5FBE926E01005005DC11C /* Kingfisher.xcframework in Frameworks */,
+				16EE7F7F26F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Frameworks */,
 				16B5FBF526E01015005DC11C /* SkeletonView.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +267,7 @@
 		16B5FBDD26E00FF6005DC11C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */,
 				16B5FBF426E01015005DC11C /* SkeletonView.xcframework */,
 				16B5FBF126E01012005DC11C /* SnapKit.xcframework */,
 				16B5FBEE26E01010005DC11C /* PromisesObjC.xcframework */,

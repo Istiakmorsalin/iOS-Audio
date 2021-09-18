@@ -20,3 +20,4 @@ github "BranchMetrics/ios-branch-deep-linking"
 github "mixpanel/mixpanel-swift"
 github "Alamofire/Alamofire" ~> 5.2.0
 github "Daltron/NotificationBanner" "master"
+github "ninjaprox/NVActivityIndicatorView"

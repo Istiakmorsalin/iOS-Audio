@@ -268,7 +268,7 @@ You can set some properties for multilines elements.
 
 | Property | Values | Default | Preview
 | ------- | ------- |------- | -------
-| **Filling percent** of the last line. | `0...100` | `70%` | ![](Assets/multiline_lastline.png)
+| **Filling percent** of the last line.<br/>Please note that for views without multiple lines, the single line will be considered as the last line and **lastLineFillPercent** will be applied to that single line.  | `0...100` | `70%`| ![](Assets/multiline_lastline.png)
 | **Corner radius** of lines. (**NEW**) | `0...10` | `0` | ![](Assets/multiline_corner.png)
 
 
@@ -295,6 +295,8 @@ Default values:
   - *default: `SkeletonGradient(baseColor: .skeletonDefault)`*
 - **multilineHeight**: CGFloat
   - *default: 15*
+- **useFontLineHeight**: Bool
+  - *default: true*
 - **multilineSpacing**: CGFloat
   - *default: 10*
 - **multilineLastLineFillPercent**: Int
@@ -315,6 +317,7 @@ You can also specifiy these line appearance properties on a per-label basis:
 - **linesCornerRadius**: Int
 - **skeletonLineSpacing**: CGFloat
 - **skeletonPaddingInsets**: UIEdgeInsets
+- **useFontLineHeight**: Bool
 
 
 ### 🎨 Custom colors

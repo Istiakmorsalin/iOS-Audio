@@ -5,6 +5,7 @@
 //  Created by ISTIAK on 26/8/21.
 //
 import UIKit
+import NVActivityIndicatorView
 
 protocol HomeViewControllerDisplayLogic: AnyObject {
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel)
@@ -30,8 +31,6 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
 
     var interactor: HomeClipsBusinessLogic?
     var router: (NSObjectProtocol & HomeClipsRouterRoutingLogic & HomeClipsDataPassing)?
-//    private var audioClips: [Clip] = []
-    
     private var audioClips: [AudioClip] = []
 
     public let tableView: UITableView = {
@@ -52,7 +51,8 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         return t
     }()
     
-//    private var audioClips: [AudioClip] = []
+    var activityIndicator : NVActivityIndicatorView!
+    
     private var drawerView: DrawerView!
     private let playerVC = PlayerViewController()
 
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     private var page: Int = 1
     private var per: Int = 20
     private var isLoaded: Bool = false
-//    private let emptyStateView = EmptyResultView(frame: .zero)
+    private let emptyStateView = EmptyResultView(frame: .zero)
 
     // MARK: Object lifecycle
     
@@ -90,6 +90,17 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         router.dataStore = interactor
     }
     
+    private func setupProgressBar() {
+        let xAxis = self.view.center.x
+        let yAxis = self.view.center.y
+        let frame = CGRect(x: (xAxis), y: (yAxis), width: 45, height: 45)
+        activityIndicator = NVActivityIndicatorView(frame: frame)
+        activityIndicator.type = . ballScale // add your type
+        activityIndicator.color = UIColor.brown // add your color
+        self.view.addSubview(activityIndicator) // or use  webView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
     public func showPlayer(withPosition position: DrawerPosition) {
         guard drawerView == nil else {
             drawerView.setPosition(position, animated: true)
@@ -103,14 +114,40 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
 
     private func buildMockData() {
+        self.emptyStateView.isHidden = true
+        
         let provider = Provider(id: 1, name: "AudioBoom  Phasellus vulputate massa sit amet sodales egestas ", logo: Logo(url: "https://avatars.githubusercontent.com/u/2936695?v=4"), isAdsAllowed: false)
+        let provider1 = Provider(id: 2, name: "Dhoom 2", logo: Logo(url: "https://pbs.twimg.com/profile_images/1324334222950064130/KRpodGpz.jpg"), isAdsAllowed: false)
+        let provider2 = Provider(id: 3, name: "Dhoom 3", logo: Logo(url: "https://www.indiewire.com/wp-content/uploads/2013/12/Dhoom-3.jpg"), isAdsAllowed: false)
+        
         let podcast = AudioClip(id: 1, title: "Lorem Ipsum is simply dummy text",  uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
         podcast.provider = provider
-
-        for _ in 1...50 {
+        
+        let podcast1 = AudioClip(id: 2, title: "Lorem Ipsum is simply dummy text",  uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
+        podcast1.provider = provider1
+        
+        let podcast2 = AudioClip(id: 3, title: "Lorem Ipsum is simply dummy text",  uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
+        podcast2.provider = provider2
+        
+    
+        for _ in 1...5 {
             self.audioClips.append(podcast)
         }
-        self.tableView.reloadData()
+        
+        for _ in 1...5 {
+            self.audioClips.append(podcast1)
+        }
+        
+        for _ in 1...5 {
+            self.audioClips.append(podcast2)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.emptyStateView.isHidden = !self.audioClips.isEmpty
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.removeFromSuperview()
+            self.tableView.reloadData()
+        })
     }
 
 
@@ -143,6 +180,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupProgressBar()
 
 //        view.backgroundColor = UIColor(r: 246, g: 248, b: 250)
 //        // Request the favorite audio clips
@@ -152,15 +190,20 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
 
         // Setup views
         view.addSubview(tableView)
-
-
+        view.addSubview(emptyStateView)
+        
+        emptyStateView.isHidden = true
+        
         defineLayout()
 
         tableView.delegate = self
         tableView.dataSource = self
 
         updateCurrentPlayingUI()
-        buildMockData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.buildMockData()
+        })
     }
 
 
@@ -170,6 +213,12 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
+        
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
+        emptyStateView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        emptyStateView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        emptyStateView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        emptyStateView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -179,7 +228,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
 
     @objc private func updateCurrentPlayingUI() {
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
         }
     }
 
