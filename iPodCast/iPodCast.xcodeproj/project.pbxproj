@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16A395CD26F5C5FA00BC6F43 /* AudioBoomClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395CC26F5C5FA00BC6F43 /* AudioBoomClip.swift */; };
+		16A395CF26F5C88500BC6F43 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395CE26F5C88500BC6F43 /* Urls.swift */; };
+		16A395D126F5C89500BC6F43 /* Profile_image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D026F5C89500BC6F43 /* Profile_image.swift */; };
+		16A395D326F5C89B00BC6F43 /* Logo_image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D226F5C89B00BC6F43 /* Logo_image.swift */; };
+		16A395D526F5C8A100BC6F43 /* Counts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D426F5C8A100BC6F43 /* Counts.swift */; };
+		16A395D726F5C8A600BC6F43 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D626F5C8A600BC6F43 /* Channel.swift */; };
+		16A395D926F5C8FD00BC6F43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D826F5C8FD00BC6F43 /* User.swift */; };
 		16B5FBDF26E00FF6005DC11C /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; };
 		16B5FBE026E00FF6005DC11C /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16B5FBE326E00FF9005DC11C /* AppAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */; };
@@ -126,6 +133,13 @@
 
 /* Begin PBXFileReference section */
 		164040D08A7A27D827A88F54 /* Pods-iPodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPodCast.release.xcconfig"; path = "Target Support Files/Pods-iPodCast/Pods-iPodCast.release.xcconfig"; sourceTree = "<group>"; };
+		16A395CC26F5C5FA00BC6F43 /* AudioBoomClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBoomClip.swift; sourceTree = "<group>"; };
+		16A395CE26F5C88500BC6F43 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		16A395D026F5C89500BC6F43 /* Profile_image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_image.swift; sourceTree = "<group>"; };
+		16A395D226F5C89B00BC6F43 /* Logo_image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logo_image.swift; sourceTree = "<group>"; };
+		16A395D426F5C8A100BC6F43 /* Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counts.swift; sourceTree = "<group>"; };
+		16A395D626F5C8A600BC6F43 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		16A395D826F5C8FD00BC6F43 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AppAuth.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/AppAuth.xcframework; sourceTree = "<group>"; };
 		16B5FBE526E00FFF005DC11C /* Cashier.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cashier.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/Cashier.xcframework; sourceTree = "<group>"; };
@@ -431,6 +445,12 @@
 		16E641E026E00E0800507927 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				16A395D826F5C8FD00BC6F43 /* User.swift */,
+				16A395D626F5C8A600BC6F43 /* Channel.swift */,
+				16A395D426F5C8A100BC6F43 /* Counts.swift */,
+				16A395D226F5C89B00BC6F43 /* Logo_image.swift */,
+				16A395D026F5C89500BC6F43 /* Profile_image.swift */,
+				16A395CE26F5C88500BC6F43 /* Urls.swift */,
 				16E641E126E00E0800507927 /* IstiakClip.swift */,
 				16E641E226E00E0800507927 /* EditorClip.swift */,
 				16E641E326E00E0800507927 /* Collection.swift */,
@@ -447,6 +467,7 @@
 				16E641EE26E00E0800507927 /* AdClip.swift */,
 				16E641EF26E00E0800507927 /* PlayerTime.swift */,
 				16E641F026E00E0800507927 /* ProviderClip.swift */,
+				16A395CC26F5C5FA00BC6F43 /* AudioBoomClip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -622,11 +643,14 @@
 				16E6417126E00D7E00507927 /* ContentView.swift in Sources */,
 				16E641C026E00DDC00507927 /* HomeFeaturedCollectionViewCell.swift in Sources */,
 				16E641DE26E00DE700507927 /* APIManager.swift in Sources */,
+				16A395CF26F5C88500BC6F43 /* Urls.swift in Sources */,
 				16E641CE26E00DDC00507927 /* HomeViewController.swift in Sources */,
 				16E641C226E00DDC00507927 /* JMCarouselViewProtocol.swift in Sources */,
 				16E641B426E00DDC00507927 /* PlayerModels.swift in Sources */,
 				16E6418B26E00DBD00507927 /* IstiakPlayerWorker.swift in Sources */,
+				16A395D726F5C8A600BC6F43 /* Channel.swift in Sources */,
 				16E6418A26E00DBD00507927 /* DeviceChangeListener.swift in Sources */,
+				16A395D526F5C8A100BC6F43 /* Counts.swift in Sources */,
 				16E6420826E00E1200507927 /* UILabel+Extensions.swift in Sources */,
 				16E641C826E00DDC00507927 /* HomeClipsCell.swift in Sources */,
 				16E6421726E00E1F00507927 /* DrawerPresentation.swift in Sources */,
@@ -654,11 +678,13 @@
 				16E641C326E00DDC00507927 /* PlayerRouter.swift in Sources */,
 				16E6417E26E00DA200507927 /* Constants.swift in Sources */,
 				16E641C626E00DDC00507927 /* PlayerInteractor.swift in Sources */,
+				16A395CD26F5C5FA00BC6F43 /* AudioBoomClip.swift in Sources */,
 				16E641B926E00DDC00507927 /* NewPlayerHeaderBottomView.swift in Sources */,
 				16E641CC26E00DDC00507927 /* EmptyResultView.swift in Sources */,
 				16E641F426E00E0800507927 /* ClipsMeta.swift in Sources */,
 				16E641DC26E00DE700507927 /* APIAlamofireDriver.swift in Sources */,
 				16E6418726E00DBD00507927 /* GoogleCastManager.swift in Sources */,
+				16A395D326F5C89B00BC6F43 /* Logo_image.swift in Sources */,
 				16E641FA26E00E0800507927 /* TimeConstant.swift in Sources */,
 				16E641DF26E00DE700507927 /* DataCacheManager.swift in Sources */,
 				16E6421826E00E1F00507927 /* Extensions.swift in Sources */,
@@ -672,9 +698,11 @@
 				16E641DB26E00DE700507927 /* MediaCommandCenter.swift in Sources */,
 				16E641BE26E00DDC00507927 /* JMCarousselViewPlayerQueueItem.swift in Sources */,
 				16E641BF26E00DDC00507927 /* JMCarouselViewCardItem.swift in Sources */,
+				16A395D126F5C89500BC6F43 /* Profile_image.swift in Sources */,
 				16E641F326E00E0800507927 /* Collection.swift in Sources */,
 				16E6418626E00DBD00507927 /* IstiakPlayer.swift in Sources */,
 				16E641B326E00DDC00507927 /* PlayerViewController.swift in Sources */,
+				16A395D926F5C8FD00BC6F43 /* User.swift in Sources */,
 				16E641D226E00DDC00507927 /* SigninViewController.swift in Sources */,
 				16E641F226E00E0800507927 /* EditorClip.swift in Sources */,
 				16E641F126E00E0800507927 /* IstiakClip.swift in Sources */,

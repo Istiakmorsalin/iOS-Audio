@@ -11,7 +11,7 @@ class APIManager: APIManagerProtocol {
     
     public static let shared = APIManager()
     
-    private var baseURL: String = ""
+    private var baseURL: String = "https://api.audioboom.com/"
     private let drivers: [APIManagerProtocol]
     
     init() {
