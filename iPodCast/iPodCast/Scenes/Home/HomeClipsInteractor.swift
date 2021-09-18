@@ -22,7 +22,7 @@ class HomeClipsInteractor: HomeClipsBusinessLogic, HomeClipsDataStore {
     var presenter: HomeClipsPresentationLogic?
     var worker: HomeClipsWorker?
     
-    private var homeClips: [Clip] = []
+    private var homeClips: [AudioBoom] = []
     
     // MARK: Do something
     
@@ -31,7 +31,7 @@ class HomeClipsInteractor: HomeClipsBusinessLogic, HomeClipsDataStore {
         let endpoint = APIEndpoint(rawValue: "/audio_clips")
         
         let apiRequest = APIRequest(endpoint: endpoint, method: .get, isCacheAllowed: false, parameters: nil)
-        APIManager.shared.callAPI(of: [Clip].self, decoder: .istiakCast, withRequest: apiRequest) { (result) in
+        APIManager.shared.callAPI(of: [AudioBoom].self, decoder: .istiakCast, withRequest: apiRequest) { (result) in
             switch result {
             case .success(let clips):
                 

@@ -43,7 +43,8 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     private var per: Int = 20
     private var isLoaded: Bool = false
 //    private let emptyStateView = EmptyResultView(frame: .zero)
-
+    
+    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     
     // MARK: Object lifecycle
     
@@ -112,6 +113,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
     
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel) {
+        indicator.stopAnimating()
 //        self.emptyStateView.isHidden = true
 //        DispatchQueue.main.async {
 //            guard viewModel.errorDescription == nil else {
@@ -131,10 +133,19 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         super.viewDidLoad()
         
 //        view.backgroundColor = UIColor(r: 246, g: 248, b: 250)
+        
+        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+        indicator.center = view.center
+        view.addSubview(indicator)
+        indicator.bringSubviewToFront(view)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        indicator.startAnimating()
+        
+        
 
-//        // Request the favorite audio clips
-//        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
-//        interactor?.fetchHomeClips(request: requestHomeAudioClips)
+        // Request the favorite audio clips
+        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
+        interactor?.fetchHomeClips(request: requestHomeAudioClips)
         
         
         // Setup views
@@ -147,7 +158,7 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         tableView.dataSource = self
         
         updateCurrentPlayingUI()
-        buildMockData()
+//        buildMockData()
     }
     
     override func viewDidAppear(_ animated: Bool) {

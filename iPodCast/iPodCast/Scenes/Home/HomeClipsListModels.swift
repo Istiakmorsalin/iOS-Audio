@@ -25,11 +25,11 @@ enum HomeClipsListModels {
             let per: Int
         }
         struct Response {
-            let homeClips: [Clip]
+            let homeClips: [AudioBoom]
             let error: Error?
         }
         struct ViewModel {
-            let homeClips: [Clip]
+            let homeClips: [AudioBoom]
             let errorDescription: String?
         }
     }
