@@ -103,12 +103,11 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
 
     private func buildMockData() {
-        let podcast1 = Podcast(name: "Brain Sparks", description: "This podcast is hosted by usability and UI design expert, Jared Spool", category: "Design", source: "", thumbnailImageUrl: "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg")
+        let provider = Provider(id: 1, name: "AudioBoom  Phasellus vulputate massa sit amet sodales egestas ", logo: Logo(url: "https://avatars.githubusercontent.com/u/2936695?v=4"), isAdsAllowed: false)
+        let podcast = AudioClip(id: 1, title: "Lorem Ipsum is simply dummy text",  uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
+        podcast.provider = provider
 
-        let podcast = AudioClip(id: 1, title: "Joss Title", uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
-
-        
-        for i in 1...50 {
+        for _ in 1...50 {
             self.audioClips.append(podcast)
         }
         self.tableView.reloadData()
@@ -223,11 +222,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeClipsCell.self)", for: indexPath) as? HomeClipsCell else { fatalError() }
         let clip = audioClips[indexPath.row]
-        let imageUrl = "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg"
-        let clipName = "Babla clip"
-        let description = "This podcast is hosted by usability and UI design expert, Jared Spool"
-        cell.configure(image: imageUrl, title: clipName, detailString: description, alreadyPlayed: false, isPremium: false)
-
+        cell.configure(image: clip.provider?.logo?.url ?? "" , title: clip.title, detailString: clip.infoString, alreadyPlayed: false, isPremium: false)
         return cell
     }
 
@@ -236,7 +231,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
