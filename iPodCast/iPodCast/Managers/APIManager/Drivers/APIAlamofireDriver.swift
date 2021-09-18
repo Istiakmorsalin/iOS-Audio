@@ -11,7 +11,7 @@ import Cashier
 
 class APIAlamofireDriver: APIManagerProtocol {
     
-    private var baseURL: String = ""
+    private var baseURL: String = "https://api.audioboom.com/"
     private var headers: HTTPHeaders = ["auth": "",
                                         "Content-Type": "application/json"]
     

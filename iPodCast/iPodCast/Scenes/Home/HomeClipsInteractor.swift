@@ -22,30 +22,23 @@ class HomeClipsInteractor: HomeClipsBusinessLogic, HomeClipsDataStore {
     var presenter: HomeClipsPresentationLogic?
     var worker: HomeClipsWorker?
     
-    private var homeClips: [AudioBoom] = []
+    private var homeClips: [Audio_clips] = []
     
     // MARK: Do something
     
     func fetchHomeClips(request: HomeClipsListModels.HomeClips.Request) {
        
-        let endpoint = APIEndpoint(rawValue: "/audio_clips")
+        let endpoint = APIEndpoint(rawValue: "audio_clips")
         
-        let apiRequest = APIRequest(endpoint: endpoint, method: .get, isCacheAllowed: false, parameters: nil)
-        APIManager.shared.callAPI(of: [AudioBoom].self, decoder: .istiakCast, withRequest: apiRequest) { (result) in
+        let apiRequest = APIRequest(endpoint: endpoint, method: .get, isCacheAllowed: false, parameters: nil, excludeAuth: true)
+        APIManager.shared.callAPI(of: AudioBoomClipBase.self, decoder: .istiakCast, withRequest: apiRequest) { (result) in
             switch result {
             case .success(let clips):
-                
-                if request.page == 0 {
-                    self.homeClips.removeAll()
-                }
-                
-                self.homeClips += clips
-                let response = HomeClipsListModels.HomeClips.Response(homeClips: self.homeClips, error: nil)
+                let response = HomeClipsListModels.HomeClips.Response(homeClips: clips, error: nil)
                 self.presenter?.presentHomeClips(response: response)
                 
             case .failure(let error):
-                let response = HomeClipsListModels.HomeClips.Response(homeClips: self.homeClips, error: error)
-                self.presenter?.presentHomeClips(response: response)
+                print(error)
             }
         }
     }

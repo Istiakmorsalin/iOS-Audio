@@ -14,6 +14,9 @@
 		16A395D526F5C8A100BC6F43 /* Counts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D426F5C8A100BC6F43 /* Counts.swift */; };
 		16A395D726F5C8A600BC6F43 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D626F5C8A600BC6F43 /* Channel.swift */; };
 		16A395D926F5C8FD00BC6F43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D826F5C8FD00BC6F43 /* User.swift */; };
+		16A395DD26F5D2B300BC6F43 /* AudioBoomClipBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395DC26F5D2B300BC6F43 /* AudioBoomClipBase.swift */; };
+		16A395DF26F5D2CC00BC6F43 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395DE26F5D2CC00BC6F43 /* Body.swift */; };
+		16A395E126F5D30300BC6F43 /* Totals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395E026F5D30300BC6F43 /* Totals.swift */; };
 		16B5FBDF26E00FF6005DC11C /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; };
 		16B5FBE026E00FF6005DC11C /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16B5FBE326E00FF9005DC11C /* AppAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */; };
@@ -140,6 +143,9 @@
 		16A395D426F5C8A100BC6F43 /* Counts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counts.swift; sourceTree = "<group>"; };
 		16A395D626F5C8A600BC6F43 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		16A395D826F5C8FD00BC6F43 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		16A395DC26F5D2B300BC6F43 /* AudioBoomClipBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioBoomClipBase.swift; sourceTree = "<group>"; };
+		16A395DE26F5D2CC00BC6F43 /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
+		16A395E026F5D30300BC6F43 /* Totals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Totals.swift; sourceTree = "<group>"; };
 		16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AppAuth.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/AppAuth.xcframework; sourceTree = "<group>"; };
 		16B5FBE526E00FFF005DC11C /* Cashier.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cashier.xcframework; path = ../../../../Desktop/IstiakCast/Carthage/Build/Cashier.xcframework; sourceTree = "<group>"; };
@@ -445,6 +451,9 @@
 		16E641E026E00E0800507927 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				16A395E026F5D30300BC6F43 /* Totals.swift */,
+				16A395DC26F5D2B300BC6F43 /* AudioBoomClipBase.swift */,
+				16A395DE26F5D2CC00BC6F43 /* Body.swift */,
 				16A395D826F5C8FD00BC6F43 /* User.swift */,
 				16A395D626F5C8A600BC6F43 /* Channel.swift */,
 				16A395D426F5C8A100BC6F43 /* Counts.swift */,
@@ -703,11 +712,14 @@
 				16E6418626E00DBD00507927 /* IstiakPlayer.swift in Sources */,
 				16E641B326E00DDC00507927 /* PlayerViewController.swift in Sources */,
 				16A395D926F5C8FD00BC6F43 /* User.swift in Sources */,
+				16A395E126F5D30300BC6F43 /* Totals.swift in Sources */,
+				16A395DF26F5D2CC00BC6F43 /* Body.swift in Sources */,
 				16E641D226E00DDC00507927 /* SigninViewController.swift in Sources */,
 				16E641F226E00E0800507927 /* EditorClip.swift in Sources */,
 				16E641F126E00E0800507927 /* IstiakClip.swift in Sources */,
 				16E6421B26E00E1F00507927 /* HomeSceneView.swift in Sources */,
 				16E6420026E00E0800507927 /* ProviderClip.swift in Sources */,
+				16A395DD26F5D2B300BC6F43 /* AudioBoomClipBase.swift in Sources */,
 				16E641F926E00E0800507927 /* PlaybackValue.swift in Sources */,
 				16E6420626E00E1200507927 /* JSONDecoder.swift in Sources */,
 				16E641CF26E00DDC00507927 /* HomeClipsInteractor.swift in Sources */,

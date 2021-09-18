@@ -4,22 +4,36 @@
 //
 //  Created by ISTIAK on 26/8/21.
 //
-
 import UIKit
 
 protocol HomeViewControllerDisplayLogic: AnyObject {
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel)
 }
 
+struct Podcast {
+    var name: String
+    var description: String
+    var category: String
+    var source: String
+    var thumbnailImageUrl: String
+
+    init(name: String, description: String, category: String, source: String, thumbnailImageUrl: String) {
+        self.name = name
+        self.description = description
+        self.category = category
+        self.source = source
+        self.thumbnailImageUrl = thumbnailImageUrl
+    }
+}
+
 class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
-    
+
     var interactor: HomeClipsBusinessLogic?
     var router: (NSObjectProtocol & HomeClipsRouterRoutingLogic & HomeClipsDataPassing)?
+//    private var audioClips: [Clip] = []
     
     private var audioClips: [AudioClip] = []
-    private var drawerView: DrawerView!
-    private let playerVC = PlayerViewController()
-    
+
     public let tableView: UITableView = {
         let t = UITableView(frame: .zero, style: .grouped)
         t.backgroundColor = .clear
@@ -38,27 +52,29 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         return t
     }()
     
+//    private var audioClips: [AudioClip] = []
+    private var drawerView: DrawerView!
+    private let playerVC = PlayerViewController()
+
     // Pagination
     private var page: Int = 1
     private var per: Int = 20
     private var isLoaded: Bool = false
 //    private let emptyStateView = EmptyResultView(frame: .zero)
-    
-    var indicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
-    
+
     // MARK: Object lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
-    
-    
+
+
     // MARK: Setup
     
     private func setup() {
@@ -75,32 +91,30 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
     }
     
     public func showPlayer(withPosition position: DrawerPosition) {
-        
         guard drawerView == nil else {
             drawerView.setPosition(position, animated: true)
             return
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-            self?.setupDrawerView()
+//            self?.setupDrawerView()
             self?.drawerView.setPosition(position, animated: true)
         }
-        
     }
-    
-    
+
     private func buildMockData() {
-//        let podcast1 = Podcast(name: "Brain Sparks", description: "This podcast is hosted by usability and UI design expert, Jared Spool", category: "Design", source: "https://assets.listentonews.com/uploads/category/picture/17/Screenshot_2019-07-25_at_14.22.34.png", thumbnailImageUrl: "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg")
+        let podcast1 = Podcast(name: "Brain Sparks", description: "This podcast is hosted by usability and UI design expert, Jared Spool", category: "Design", source: "", thumbnailImageUrl: "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg")
+
+        let podcast = AudioClip(id: 1, title: "Joss Title", uri: "https://audioboom.com/posts/7944518-this-weekend-with-gordon-deal-september-18-2021.mp3")
+
         
-        let podcast = AudioClip(id: 1, title: "Joss Title", uri: "https://assets.listentonews.com/uploads/category/picture/17/Screenshot_2019-07-25_at_14.22.34.png")
-        
-        for _ in 1...10 {
+        for i in 1...50 {
             self.audioClips.append(podcast)
         }
         self.tableView.reloadData()
     }
-    
-    
+
+
     // MARK: Routing
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,9 +125,8 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
             }
         }
     }
-    
+
     func displayHomeClips(viewModel: HomeClipsListModels.HomeClips.ViewModel) {
-        indicator.stopAnimating()
 //        self.emptyStateView.isHidden = true
 //        DispatchQueue.main.async {
 //            guard viewModel.errorDescription == nil else {
@@ -126,67 +139,32 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
 //            self.emptyStateView.isHidden = !viewModel.homeClips.isEmpty
 //        }
     }
-    
+
     // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        view.backgroundColor = UIColor(r: 246, g: 248, b: 250)
-        
-        indicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-        indicator.center = view.center
-        view.addSubview(indicator)
-        indicator.bringSubviewToFront(view)
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        indicator.startAnimating()
-        
+//        // Request the favorite audio clips
+//        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
+//        interactor?.fetchHomeClips(request: requestHomeAudioClips)
         
 
-        // Request the favorite audio clips
-        let requestHomeAudioClips = HomeClipsListModels.HomeClips.Request(page: page, per: per)
-        interactor?.fetchHomeClips(request: requestHomeAudioClips)
-        
-        
         // Setup views
         view.addSubview(tableView)
-    
-        
+
+
         defineLayout()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         updateCurrentPlayingUI()
-//        buildMockData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Setup the drawer for the player view controller
-        self.setupDrawerView()
-        
-    }
-    
-    private func setupDrawerView() {
-        
-        drawerView = self.addDrawerView(withViewController: playerVC)
-        drawerView.delegate = self
-        playerVC.drawerView = drawerView
-        drawerView.clipsToBounds = true
-        drawerView.snapPositions = [.partiallyOpen, .open]
-        drawerView.insetAdjustmentBehavior = .automatic
-        drawerView.cornerRadius = 0
-        drawerView.topMargin = 25 + (50)
-        drawerView.partiallyOpenHeight = 115
-        drawerView.collapsedHeight = 0
-        drawerView.position = .closed
-        drawerView.backgroundEffect = nil
-        drawerView.backgroundColor = .clear
+        buildMockData()
     }
 
-    
+
     func defineLayout() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor, constant:20).isActive = true
@@ -194,39 +172,39 @@ class HomeViewController: UIViewController, HomeViewControllerDisplayLogic {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80).isActive = true
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    
+
+
     @objc private func updateCurrentPlayingUI() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-    
+
     @objc func back() {
         navigationController?.popViewController(animated: true)
     }
-    
+
     // Scroll to end detector
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let height = scrollView.frame.size.height
         let contentYoffset = scrollView.contentOffset.y
         let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-        
+
         guard distanceFromBottom < height else { return }
         guard isLoaded else { return }
         guard (page == 1 || (page) * per == audioClips.count) else { return }
-        
+
         page += 1
         isLoaded = false
-        
+
         // Request the audio clips in this category - with pagination
        
     }
-    
+
 
 }
 
@@ -245,53 +223,38 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeClipsCell.self)", for: indexPath) as? HomeClipsCell else { fatalError() }
         let clip = audioClips[indexPath.row]
-        
-        cell.configure(image: clip.provider?.logo?.url ?? "", title: clip.title, detailString: clip.infoString, alreadyPlayed: false, isPremium: false)
-        
+        let imageUrl = "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg"
+        let clipName = "Babla clip"
+        let description = "This podcast is hosted by usability and UI design expert, Jared Spool"
+        cell.configure(image: imageUrl, title: clipName, detailString: description, alreadyPlayed: false, isPremium: false)
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 100
     }
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    
+
         print("selected indexpath ---->>> \(indexPath.row)")
-        
-        let sortedClips = Array(audioClips.suffix(from: indexPath.row))
-        
-        // Play audio clip
-        let request = CollectionDetail.PlayClips.Request(
-            clips: sortedClips,
-            startClip: nil,
-            endClip: nil,
-            upcomingClips: [],
-            isTimeslot: false,
-            timeslotAd: nil
-        )
-        
-        self.interactor?.playHomeClips(request: request)
-        
-        self.router?.openMinimumPlayer()
-       
+
     }
 }
-
 
 extension HomeViewController: DrawerViewDelegate {
     
@@ -316,3 +279,4 @@ extension HomeViewController: DrawerViewDelegate {
         
     }
 }
+
