@@ -31,6 +31,11 @@ struct ImageLoader {
         let prefix = "https://raw.githubusercontent.com/onevcat/Kingfisher-TestImages/master/DemoAppImage/Loading"
         return (1...10).map { URL(string: "\(prefix)/kingfisher-\($0).jpg")! }
     }()
+    
+    static let orientationImageURLs: [URL] = {
+        let prefix = "https://raw.githubusercontent.com/onevcat/Kingfisher-TestImages/master/DemoAppImage/Orientation"
+        return (1...16).map { URL(string: "\(prefix)/\($0).jpg")! }
+    }()
 
     static let highResolutionImageURLs: [URL] = {
         let prefix = "https://raw.githubusercontent.com/onevcat/Kingfisher-TestImages/master/DemoAppImage/HighResolution"
@@ -46,4 +51,8 @@ struct ImageLoader {
         let prefix = "https://raw.githubusercontent.com/onevcat/Kingfisher-TestImages/master/DemoAppImage/Progressive"
         return URL(string: "\(prefix)/progressive.jpg")!
     }()
+    
+    static func roseImage(index: Int) -> URL {
+        return URL(string: "https://github.com/onevcat/Flower-Data-Set/raw/master/rose/rose-\(index).jpg")!
+    }
 }

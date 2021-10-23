@@ -52,28 +52,24 @@ class ProgressiveJPEGViewController: UIViewController {
             isFastestScan: isFastestScan,
             scanInterval: 0.1
         )
-        
-        imageView.kf.setImage(
-            with: ImageLoader.progressiveImageURL,
-            placeholder: nil,
-            options: [.loadDiskFileSynchronously,
-                      .progressiveJPEG(progressive),
-                      .processor(processor)],
-            progressBlock: { receivedSize, totalSize in
+
+        KF.url(ImageLoader.progressiveImageURL)
+            .loadDiskFileSynchronously()
+            .progressiveJPEG(progressive)
+            .roundCorner(radius: .point(30))
+            .onProgress { receivedSize, totalSize in
                 print("\(receivedSize)/\(totalSize)")
                 self.progressLabel.text = "\(receivedSize) / \(totalSize)"
-            },
-            completionHandler: { result in
-                do {
-                    let value = try result.get()
-                    print(value)
-                    print("Finished")
-                    
-                } catch {
-                    self.progressLabel.text = error.localizedDescription
-                }
             }
-        )
+            .onSuccess { result in
+                print(result)
+                print("Finished")
+            }
+            .onFailure { error in
+                print(error)
+                self.progressLabel.text = error.localizedDescription
+            }
+            .set(to: imageView)
     }
     
     override func alertPopup(_ sender: Any) -> UIAlertController {

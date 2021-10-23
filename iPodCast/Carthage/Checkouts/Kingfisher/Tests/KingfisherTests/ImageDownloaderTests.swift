@@ -112,11 +112,40 @@ class ImageDownloaderTests: XCTestCase {
         modifier.url = url
         
         let someURL = URL(string: "some_strange_url")!
-        downloader.downloadImage(with: someURL, options: [.requestModifier(modifier)]) { result in
+        let task = downloader.downloadImage(with: someURL, options: [.requestModifier(modifier)]) { result in
             XCTAssertNotNil(result.value)
             XCTAssertEqual(result.value?.url, url)
             exp.fulfill()
         }
+        XCTAssertNotNil(task)
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
+    func testDownloadWithAsyncModifyingRequest() {
+        let exp = expectation(description: #function)
+
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+
+        var downloadTaskCalled = false
+
+        let asyncModifier = AsyncURLModifier()
+        asyncModifier.url = url
+        asyncModifier.onDownloadTaskStarted = { task in
+            XCTAssertNotNil(task)
+            downloadTaskCalled = true
+        }
+
+
+        let someURL = URL(string: "some_strage_url")!
+        let task = downloader.downloadImage(with: someURL, options: [.requestModifier(asyncModifier)]) { result in
+            XCTAssertNotNil(result.value)
+            XCTAssertEqual(result.value?.url, url)
+            XCTAssertTrue(downloadTaskCalled)
+            exp.fulfill()
+        }
+        // The returned task is nil since the download is not starting immediately.
+        XCTAssertNil(task)
         waitForExpectations(timeout: 3, handler: nil)
     }
 
@@ -152,37 +181,6 @@ class ImageDownloaderTests: XCTestCase {
         
         waitForExpectations(timeout: 3, handler: nil)
     }
-    
-    // Since we could not receive one challage, no test for trusted hosts currently.
-    // See http://stackoverflow.com/questions/27065372/ for more.
-    func testSSLCertificateValidation() {
-        LSNocilla.sharedInstance().stop()
-
-        let exp = expectation(description: #function)
-
-        let downloader = ImageDownloader(name: "ssl.test")
-        let url = URL(string: "https://testssl-expire.disig.sk/Expired.png")!
-        
-        downloader.downloadImage(with: url) { result in
-            XCTAssertNotNil(result.error)
-            if case .responseError(reason: .URLSessionError(let error)) = result.error! {
-                let nsError = error as NSError
-                XCTAssert(nsError.code == NSURLErrorServerCertificateUntrusted ||
-                          nsError.code == NSURLErrorSecureConnectionFailed,
-                          "Error should be NSURLErrorServerCertificateUntrusted, but \(String(describing: error))")
-            } else {
-                XCTFail()
-            }
-            exp.fulfill()
-            LSNocilla.sharedInstance().start()
-        }
-        
-        waitForExpectations(timeout: 20) { error in
-            XCTAssertNil(error, "\(String(describing: error))")
-            LSNocilla.sharedInstance().start()
-        }
-    }
- 
     
     func testDownloadResultErrorAndRetry() {
         let exp = expectation(description: #function)
@@ -467,8 +465,10 @@ class ImageDownloaderTests: XCTestCase {
         
         let url = testURLs[0]
         stub(url, data: testImageData)
+        
+        let modifier = URLNilDataModifier()
 
-        downloader.delegate = self
+        downloader.delegate = modifier
         downloader.downloadImage(with: url) { result in
             XCTAssertNil(result.value)
             XCTAssertNotNil(result.error)
@@ -477,13 +477,39 @@ class ImageDownloaderTests: XCTestCase {
                 XCTFail()
             }
             self.downloader.delegate = nil
+            // hold delegate
+            _ = modifier
             exp.fulfill()
         }
         waitForExpectations(timeout: 3, handler: nil)
     }
 
+    func testDownloadedDataCouldBeModifiedWithTask() {
+        let exp = expectation(description: #function)
+        
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+        
+        let modifier = TaskNilDataModifier()
+
+        downloader.delegate = modifier
+        downloader.downloadImage(with: url) { result in
+            XCTAssertNil(result.value)
+            XCTAssertNotNil(result.error)
+            if case .responseError(reason: .dataModifyingFailed) = result.error! {
+            } else {
+                XCTFail()
+            }
+            self.downloader.delegate = nil
+            // hold delegate
+            _ = modifier
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+    
 #if os(iOS) || os(tvOS) || os(watchOS)
-    func testDownloadedImageCouldBeModified() {
+    func testModifierShouldOnlyApplyForFinalResultWhenDownload() {
         let exp = expectation(description: #function)
 
         let url = testURLs[0]
@@ -496,8 +522,8 @@ class ImageDownloaderTests: XCTestCase {
         }
 
         downloader.downloadImage(with: url, options: [.imageModifier(modifier)]) { result in
-            XCTAssertTrue(modifierCalled)
-            XCTAssertEqual(result.value?.image.renderingMode, .alwaysTemplate)
+            XCTAssertFalse(modifierCalled)
+            XCTAssertEqual(result.value?.image.renderingMode, .automatic)
             exp.fulfill()
         }
 
@@ -518,10 +544,38 @@ class ImageDownloaderTests: XCTestCase {
         XCTAssertEqual(task?.sessionTask.task.priority, URLSessionTask.highPriority)
         waitForExpectations(timeout: 3, handler: nil)
     }
+    
+    
+    func testSessionDelegate() {
+        class ExtensionDelegate:SessionDelegate {
+            //'exp' only for test
+            public let exp:XCTestExpectation
+            init(_ expectation:XCTestExpectation) {
+                exp = expectation
+            }
+            func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting metrics: URLSessionTaskMetrics) {
+                exp.fulfill()
+            }
+        }
+        downloader.sessionDelegate = ExtensionDelegate(expectation(description: #function))
+        
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+        downloader.downloadImage(with: url) { result in
+            XCTAssertNotNil(result.value)
+        }
+        waitForExpectations(timeout: 3, handler: nil)
+    }
 }
 
-extension ImageDownloaderTests: ImageDownloaderDelegate {
+class URLNilDataModifier: ImageDownloaderDelegate {
     func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, for url: URL) -> Data? {
+        return nil
+    }
+}
+
+class TaskNilDataModifier: ImageDownloaderDelegate {
+    func imageDownloader(_ downloader: ImageDownloader, didDownload data: Data, with dataTask: SessionDataTask) -> Data? {
         return nil
     }
 }
@@ -535,3 +589,15 @@ class URLModifier: ImageDownloadRequestModifier {
     }
 }
 
+class AsyncURLModifier: AsyncImageDownloadRequestModifier {
+    var url: URL? = nil
+    var onDownloadTaskStarted: ((DownloadTask?) -> Void)?
+
+    func modified(for request: URLRequest, reportModified: @escaping (URLRequest?) -> Void) {
+        var r = request
+        r.url = url
+        DispatchQueue.main.async {
+            reportModified(r)
+        }
+    }
+}

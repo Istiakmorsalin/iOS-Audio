@@ -661,6 +661,36 @@ class KingfisherManagerTests: XCTestCase {
         }
         waitForExpectations(timeout: 3, handler: nil)
     }
+
+    func testImageModifierResultShouldNotBeCached() {
+        let exp = expectation(description: #function)
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+
+        var modifierCalled = false
+        let modifier = AnyImageModifier { image in
+            modifierCalled = true
+            return image.withRenderingMode(.alwaysTemplate)
+        }
+        manager.retrieveImage(with: url, options: [.imageModifier(modifier)]) { result in
+            XCTAssertTrue(modifierCalled)
+            XCTAssertEqual(result.value?.image.renderingMode, .alwaysTemplate)
+
+            let memoryCached = self.manager.cache.retrieveImageInMemoryCache(forKey: url.absoluteString)
+            XCTAssertNotNil(memoryCached)
+            XCTAssertEqual(memoryCached?.renderingMode, .automatic)
+
+            self.manager.cache.retrieveImageInDiskCache(forKey: url.absoluteString) { result in
+                XCTAssertNotNil(result.value!)
+                XCTAssertEqual(result.value??.renderingMode, .automatic)
+
+                exp.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 3, handler: nil)
+    }
+
 #endif
     
     func testRetrieveWithImageProvider() {
@@ -860,6 +890,61 @@ class KingfisherManagerTests: XCTestCase {
                 _ = dataStub.go()
                 exp.fulfill()
             }
+        }
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testDownsamplingHandleScale2x() {
+        let exp = expectation(description: #function)
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+        
+        _ = manager.retrieveImage(
+            with: .network(url),
+            options: [.processor(DownsamplingImageProcessor(size: .init(width: 4, height: 4))), .scaleFactor(2)])
+        {
+            result in
+
+            let image = result.value?.image
+            XCTAssertNotNil(image)
+            
+            #if os(macOS)
+            XCTAssertEqual(image?.size, .init(width: 8, height: 8))
+            XCTAssertEqual(image?.kf.scale, 1)
+            #else
+            XCTAssertEqual(image?.size, .init(width: 4, height: 4))
+            XCTAssertEqual(image?.kf.scale, 2)
+            #endif
+            
+            exp.fulfill()
+        }
+
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+    
+    func testDownsamplingHandleScale3x() {
+        let exp = expectation(description: #function)
+        let url = testURLs[0]
+        stub(url, data: testImageData)
+        
+        _ = manager.retrieveImage(
+            with: .network(url),
+            options: [.processor(DownsamplingImageProcessor(size: .init(width: 4, height: 4))), .scaleFactor(3)])
+        {
+            result in
+
+            let image = result.value?.image
+            XCTAssertNotNil(image)
+            #if os(macOS)
+            XCTAssertEqual(image?.size, .init(width: 12, height: 12))
+            XCTAssertEqual(image?.kf.scale, 1)
+            #else
+            XCTAssertEqual(image?.size, .init(width: 4, height: 4))
+            XCTAssertEqual(image?.kf.scale, 3)
+            #endif
+            
+            exp.fulfill()
         }
 
         waitForExpectations(timeout: 1, handler: nil)

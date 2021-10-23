@@ -1,11 +1,3 @@
-//
-//  JMCarouselViewProtocol.swift
-//  Listen-to-News
-//
-//  Created by Jakob Mikkelsen on 20/01/2020.
-//  Copyright © 2020 Listen To News. All rights reserved.
-//
-
 import Foundation
 
 

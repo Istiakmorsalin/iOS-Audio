@@ -1,10 +1,4 @@
-//
-//  Category.swift
-//  Listen-to-News
-//
-//  Created by Jakob Mikkelsen on 21/02/2020.
-//  Copyright © 2020 Listen to news. All rights reserved.
-//
+
 
 import UIKit
 

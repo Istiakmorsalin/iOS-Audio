@@ -1,11 +1,3 @@
-//
-//  NewPlayerHeaderBottomView.swift
-//  Listen-to-News
-//
-//  Created by Jakob Mikkelsen on 19/06/2019.
-//  Copyright © 2019 Listen To News. All rights reserved.
-//
-
 import UIKit
 
 class NewPlayerHeaderBottomView: UIView {

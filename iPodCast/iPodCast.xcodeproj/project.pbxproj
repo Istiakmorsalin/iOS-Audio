@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163FF9542723FD1E006DEF8C /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9532723FD1E006DEF8C /* Alamofire.xcframework */; };
+		163FF9552723FD1E006DEF8C /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9532723FD1E006DEF8C /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF9572723FD29006DEF8C /* AppAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9562723FD29006DEF8C /* AppAuth.xcframework */; };
+		163FF9582723FD29006DEF8C /* AppAuth.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9562723FD29006DEF8C /* AppAuth.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF95A2723FD2C006DEF8C /* Cashier.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9592723FD2C006DEF8C /* Cashier.xcframework */; };
+		163FF95B2723FD2C006DEF8C /* Cashier.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9592723FD2C006DEF8C /* Cashier.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF95D2723FD43006DEF8C /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF95C2723FD43006DEF8C /* Kingfisher.xcframework */; };
+		163FF95E2723FD43006DEF8C /* Kingfisher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF95C2723FD43006DEF8C /* Kingfisher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF9602723FD60006DEF8C /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF95F2723FD60006DEF8C /* PromisesObjC.xcframework */; };
+		163FF9612723FD60006DEF8C /* PromisesObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF95F2723FD60006DEF8C /* PromisesObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF9632723FD69006DEF8C /* SkeletonView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9622723FD69006DEF8C /* SkeletonView.xcframework */; };
+		163FF9642723FD69006DEF8C /* SkeletonView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9622723FD69006DEF8C /* SkeletonView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		163FF9662723FD71006DEF8C /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9652723FD71006DEF8C /* SnapKit.xcframework */; };
+		163FF9672723FD71006DEF8C /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 163FF9652723FD71006DEF8C /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16A395CD26F5C5FA00BC6F43 /* AudioBoomClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395CC26F5C5FA00BC6F43 /* AudioBoomClip.swift */; };
 		16A395CF26F5C88500BC6F43 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395CE26F5C88500BC6F43 /* Urls.swift */; };
 		16A395D126F5C89500BC6F43 /* Profile_image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395D026F5C89500BC6F43 /* Profile_image.swift */; };
@@ -17,22 +31,6 @@
 		16A395DD26F5D2B300BC6F43 /* AudioBoomClipBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395DC26F5D2B300BC6F43 /* AudioBoomClipBase.swift */; };
 		16A395DF26F5D2CC00BC6F43 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395DE26F5D2CC00BC6F43 /* Body.swift */; };
 		16A395E126F5D30300BC6F43 /* Totals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A395E026F5D30300BC6F43 /* Totals.swift */; };
-		16B5FBDF26E00FF6005DC11C /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; };
-		16B5FBE026E00FF6005DC11C /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBE326E00FF9005DC11C /* AppAuth.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */; };
-		16B5FBE426E00FF9005DC11C /* AppAuth.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBE626E00FFF005DC11C /* Cashier.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE526E00FFF005DC11C /* Cashier.xcframework */; };
-		16B5FBE726E00FFF005DC11C /* Cashier.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE526E00FFF005DC11C /* Cashier.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBE926E01005005DC11C /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE826E01005005DC11C /* Kingfisher.xcframework */; };
-		16B5FBEA26E01005005DC11C /* Kingfisher.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBE826E01005005DC11C /* Kingfisher.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBEC26E01009005DC11C /* KingfisherSwiftUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBEB26E01009005DC11C /* KingfisherSwiftUI.xcframework */; };
-		16B5FBED26E01009005DC11C /* KingfisherSwiftUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBEB26E01009005DC11C /* KingfisherSwiftUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBEF26E01010005DC11C /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBEE26E01010005DC11C /* PromisesObjC.xcframework */; };
-		16B5FBF026E01010005DC11C /* PromisesObjC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBEE26E01010005DC11C /* PromisesObjC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBF226E01012005DC11C /* SnapKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBF126E01012005DC11C /* SnapKit.xcframework */; };
-		16B5FBF326E01012005DC11C /* SnapKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBF126E01012005DC11C /* SnapKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		16B5FBF526E01015005DC11C /* SkeletonView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBF426E01015005DC11C /* SkeletonView.xcframework */; };
-		16B5FBF626E01015005DC11C /* SkeletonView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16B5FBF426E01015005DC11C /* SkeletonView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16B5FBF726E01064005DC11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E6421E26E00E2900507927 /* Assets.xcassets */; };
 		16E6416F26E00D7E00507927 /* iPodCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6416E26E00D7E00507927 /* iPodCastApp.swift */; };
 		16E6417126E00D7E00507927 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6417026E00D7E00507927 /* ContentView.swift */; };
@@ -113,6 +111,7 @@
 		16E6422726E00E2900507927 /* Topu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 16E6422226E00E2900507927 /* Topu.mp3 */; };
 		16EE7F7F26F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */; };
 		16EE7F8026F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3AC871ABE2881E32D851082D /* Pods_iPodCast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4935EA4A3453E79479655F8 /* Pods_iPodCast.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,15 +121,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				16B5FBE026E00FF6005DC11C /* Alamofire.xcframework in Embed Frameworks */,
-				16B5FBF326E01012005DC11C /* SnapKit.xcframework in Embed Frameworks */,
-				16B5FBE726E00FFF005DC11C /* Cashier.xcframework in Embed Frameworks */,
-				16B5FBED26E01009005DC11C /* KingfisherSwiftUI.xcframework in Embed Frameworks */,
-				16B5FBF026E01010005DC11C /* PromisesObjC.xcframework in Embed Frameworks */,
-				16B5FBE426E00FF9005DC11C /* AppAuth.xcframework in Embed Frameworks */,
-				16B5FBEA26E01005005DC11C /* Kingfisher.xcframework in Embed Frameworks */,
+				163FF9552723FD1E006DEF8C /* Alamofire.xcframework in Embed Frameworks */,
+				163FF95B2723FD2C006DEF8C /* Cashier.xcframework in Embed Frameworks */,
+				163FF9582723FD29006DEF8C /* AppAuth.xcframework in Embed Frameworks */,
 				16EE7F8026F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Embed Frameworks */,
-				16B5FBF626E01015005DC11C /* SkeletonView.xcframework in Embed Frameworks */,
+				163FF9672723FD71006DEF8C /* SnapKit.xcframework in Embed Frameworks */,
+				163FF95E2723FD43006DEF8C /* Kingfisher.xcframework in Embed Frameworks */,
+				163FF9612723FD60006DEF8C /* PromisesObjC.xcframework in Embed Frameworks */,
+				163FF9642723FD69006DEF8C /* SkeletonView.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +136,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		163FF9532723FD1E006DEF8C /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
+		163FF9562723FD29006DEF8C /* AppAuth.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AppAuth.xcframework; path = Carthage/Build/AppAuth.xcframework; sourceTree = "<group>"; };
+		163FF9592723FD2C006DEF8C /* Cashier.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cashier.xcframework; path = Carthage/Build/Cashier.xcframework; sourceTree = "<group>"; };
+		163FF95C2723FD43006DEF8C /* Kingfisher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Kingfisher.xcframework; path = Carthage/Build/Kingfisher.xcframework; sourceTree = "<group>"; };
+		163FF95F2723FD60006DEF8C /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = Carthage/Build/PromisesObjC.xcframework; sourceTree = "<group>"; };
+		163FF9622723FD69006DEF8C /* SkeletonView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SkeletonView.xcframework; path = Carthage/Build/SkeletonView.xcframework; sourceTree = "<group>"; };
+		163FF9652723FD71006DEF8C /* SnapKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SnapKit.xcframework; path = Carthage/Build/SnapKit.xcframework; sourceTree = "<group>"; };
 		164040D08A7A27D827A88F54 /* Pods-iPodCast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPodCast.release.xcconfig"; path = "Target Support Files/Pods-iPodCast/Pods-iPodCast.release.xcconfig"; sourceTree = "<group>"; };
 		16A395CC26F5C5FA00BC6F43 /* AudioBoomClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBoomClip.swift; sourceTree = "<group>"; };
 		16A395CE26F5C88500BC6F43 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
@@ -242,6 +247,7 @@
 		16E6422326E00E2900507927 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = NVActivityIndicatorView.xcframework; path = Carthage/Build/NVActivityIndicatorView.xcframework; sourceTree = "<group>"; };
 		E85BEE872957651F6494FB56 /* Pods-iPodCast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPodCast.debug.xcconfig"; path = "Target Support Files/Pods-iPodCast/Pods-iPodCast.debug.xcconfig"; sourceTree = "<group>"; };
+		F4935EA4A3453E79479655F8 /* Pods_iPodCast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPodCast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,15 +255,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16B5FBDF26E00FF6005DC11C /* Alamofire.xcframework in Frameworks */,
-				16B5FBF226E01012005DC11C /* SnapKit.xcframework in Frameworks */,
-				16B5FBE626E00FFF005DC11C /* Cashier.xcframework in Frameworks */,
-				16B5FBEC26E01009005DC11C /* KingfisherSwiftUI.xcframework in Frameworks */,
-				16B5FBEF26E01010005DC11C /* PromisesObjC.xcframework in Frameworks */,
-				16B5FBE326E00FF9005DC11C /* AppAuth.xcframework in Frameworks */,
-				16B5FBE926E01005005DC11C /* Kingfisher.xcframework in Frameworks */,
+				163FF9602723FD60006DEF8C /* PromisesObjC.xcframework in Frameworks */,
+				163FF9542723FD1E006DEF8C /* Alamofire.xcframework in Frameworks */,
+				163FF9632723FD69006DEF8C /* SkeletonView.xcframework in Frameworks */,
+				163FF9572723FD29006DEF8C /* AppAuth.xcframework in Frameworks */,
+				163FF9662723FD71006DEF8C /* SnapKit.xcframework in Frameworks */,
+				163FF95D2723FD43006DEF8C /* Kingfisher.xcframework in Frameworks */,
 				16EE7F7F26F5FA8900F40DF3 /* NVActivityIndicatorView.xcframework in Frameworks */,
-				16B5FBF526E01015005DC11C /* SkeletonView.xcframework in Frameworks */,
+				163FF95A2723FD2C006DEF8C /* Cashier.xcframework in Frameworks */,
+				3AC871ABE2881E32D851082D /* Pods_iPodCast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +273,13 @@
 		16B5FBDD26E00FF6005DC11C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				163FF9652723FD71006DEF8C /* SnapKit.xcframework */,
+				163FF9622723FD69006DEF8C /* SkeletonView.xcframework */,
+				163FF95F2723FD60006DEF8C /* PromisesObjC.xcframework */,
+				163FF95C2723FD43006DEF8C /* Kingfisher.xcframework */,
+				163FF9592723FD2C006DEF8C /* Cashier.xcframework */,
+				163FF9562723FD29006DEF8C /* AppAuth.xcframework */,
+				163FF9532723FD1E006DEF8C /* Alamofire.xcframework */,
 				16EE7F7C26F5F8CD00F40DF3 /* NVActivityIndicatorView.xcframework */,
 				16B5FBF426E01015005DC11C /* SkeletonView.xcframework */,
 				16B5FBF126E01012005DC11C /* SnapKit.xcframework */,
@@ -276,6 +289,7 @@
 				16B5FBE526E00FFF005DC11C /* Cashier.xcframework */,
 				16B5FBE226E00FF9005DC11C /* AppAuth.xcframework */,
 				16B5FBDE26E00FF6005DC11C /* Alamofire.xcframework */,
+				F4935EA4A3453E79479655F8 /* Pods_iPodCast.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

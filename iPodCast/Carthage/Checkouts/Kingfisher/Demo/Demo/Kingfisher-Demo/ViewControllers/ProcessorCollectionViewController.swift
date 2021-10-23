@@ -42,6 +42,8 @@ class ProcessorCollectionViewController: UICollectionViewController {
         (ResizingImageProcessor(referenceSize: CGSize(width: 50, height: 50)), "Resizing"),
         (RoundCornerImageProcessor(radius: .point(20)), "Round Corner"),
         (RoundCornerImageProcessor(radius: .widthFraction(0.5), roundingCorners: [.topLeft, .bottomRight]), "Round Corner Partial"),
+        (BorderImageProcessor(border: .init(color: .systemBlue, lineWidth: 8)), "Border"),
+        (RoundCornerImageProcessor(radius: .widthFraction(0.2)) |> BorderImageProcessor(border: .init(color: .systemBlue.withAlphaComponent(0.7), lineWidth: 12, radius: .widthFraction(0.2))), "Round Border"),
         (BlendImageProcessor(blendMode: .lighten, alpha: 1.0, backgroundColor: .red), "Blend"),
         (BlurImageProcessor(blurRadius: 5), "Blur"),
         (OverlayImageProcessor(overlay: .red, fraction: 0.5), "Overlay"),
@@ -70,13 +72,14 @@ class ProcessorCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCollectionViewCell
         let url = ImageLoader.sampleImageURLs[indexPath.row]
-        var options: KingfisherOptionsInfo = [.processor(currentProcessor)]
-        if currentProcessor is RoundCornerImageProcessor {
-            options.append(.cacheSerializer(FormatIndicatedCacheSerializer.png))
-        }
-        cell.cellImageView.kf.setImage(with: url, options: options) { result in
-            print(result)
-        }
+
+        KF.url(url)
+            .setProcessor(currentProcessor)
+            .serialize(as: .PNG)
+            .onSuccess { print($0) }
+            .onFailure { print($0) }
+            .set(to: cell.cellImageView)
+
         return cell
     }
     

@@ -1,11 +1,3 @@
-//
-//  HomeFeaturedCollectionViewCell.swift
-//  Listen-to-News
-//
-//  Created by Jakob Mikkelsen on 10/06/2020.
-//  Copyright © 2020 Listen to news. All rights reserved.
-//
-
 import UIKit
 
 class HomeFeaturedCollectionViewCell: UICollectionViewCell, JMCarouselViewItemProtocol {

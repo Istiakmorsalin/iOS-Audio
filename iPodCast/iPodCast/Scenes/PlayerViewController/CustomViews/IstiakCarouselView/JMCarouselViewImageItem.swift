@@ -1,11 +1,3 @@
-//
-//  JMCarouselViewImageItem.swift
-//  Listen To News
-//
-//  Created by Jakob Mikkelsen on 21/01/2020.
-//  Copyright © 2020 Listen To News. All rights reserved.
-//
-
 import UIKit
 
 class JMCarouselViewImageItem: UICollectionViewCell {

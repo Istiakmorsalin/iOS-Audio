@@ -20,13 +20,10 @@
 #import "BranchCloseRequest.h"
 #import "BranchConstants.h"
 #import "BranchContentDiscoverer.h"
-#import "BranchCreditHistoryRequest.h"
 #import "BranchInstallRequest.h"
 #import "BranchJsonConfig.h"
-#import "BranchLoadRewardsRequest.h"
 #import "BranchLogoutRequest.h"
 #import "BranchOpenRequest.h"
-#import "BranchRedeemRewardsRequest.h"
 #import "BranchSetIdentityRequest.h"
 #import "BranchShortUrlRequest.h"
 #import "BranchShortUrlSyncRequest.h"
@@ -310,7 +307,6 @@ static Class bnc_networkServiceClass = NULL;
 
 static BOOL bnc_useTestBranchKey = NO;
 static NSString *bnc_branchKey = nil;
-static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
 + (void)resetBranchKey {
     bnc_branchKey = nil;
@@ -421,18 +417,6 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
     }
 }
 
-+ (void)setEnableFingerprintIDInCrashlyticsReports:(BOOL)enabled {
-    @synchronized(self) {
-        bnc_enableFingerprintIDInCrashlyticsReports = enabled;
-    }
-}
-
-+ (BOOL)enableFingerprintIDInCrashlyticsReports {
-    @synchronized (self) {
-        return bnc_enableFingerprintIDInCrashlyticsReports;
-    }
-}
-
 - (void)enableLogging {
     BNCLogSetDisplayLevel(BNCLogLevelDebug);
 }
@@ -516,7 +500,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
 + (BOOL)trackingDisabled {
     @synchronized(self) {
-        return [BNCPreferenceHelper preferenceHelper].trackingDisabled;
+        return [BNCPreferenceHelper sharedInstance].trackingDisabled;
     }
 }
 
@@ -527,7 +511,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
             return;
         if (disabled) {
             // Set the flag (which also clears the settings):
-            [BNCPreferenceHelper preferenceHelper].trackingDisabled = YES;
+            [BNCPreferenceHelper sharedInstance].trackingDisabled = YES;
             Branch *branch = Branch.getInstance;
             [branch clearNetworkQueue];
             branch.initializationStatus = BNCInitStatusUninitialized;
@@ -536,7 +520,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
             [BranchOpenRequest releaseOpenResponseLock];
         } else {
             // Set the flag:
-            [BNCPreferenceHelper preferenceHelper].trackingDisabled = NO;
+            [BNCPreferenceHelper sharedInstance].trackingDisabled = NO;
             // Initialize a Branch session:
             [Branch.getInstance initUserSessionAndCallCallback:NO sceneIdentifier:nil];
         }
@@ -658,8 +642,8 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
 - (void)checkAttributionStatusAndInitialize {
     dispatch_async(self.isolationQueue, ^(){
-        if ([BNCPreferenceHelper preferenceHelper].faceBookAppLink) {
-            [self handleDeepLink:[BNCPreferenceHelper preferenceHelper].faceBookAppLink sceneIdentifier:nil];
+        if ([BNCPreferenceHelper sharedInstance].faceBookAppLink) {
+            [self handleDeepLink:[BNCPreferenceHelper sharedInstance].faceBookAppLink sceneIdentifier:nil];
         } else {
             [self initUserSessionAndCallCallback:YES sceneIdentifier:nil];
         }
@@ -786,14 +770,13 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
     NSString *source = nil;
     NSString *annotation = nil;
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wpartial-availability"
-    if (UIApplicationOpenURLOptionsSourceApplicationKey &&
-        UIApplicationOpenURLOptionsAnnotationKey) {
-        source = options[UIApplicationOpenURLOptionsSourceApplicationKey];
-        annotation = options[UIApplicationOpenURLOptionsAnnotationKey];
+    if (@available(iOS 9.0, *)) {
+        if (UIApplicationOpenURLOptionsSourceApplicationKey &&
+            UIApplicationOpenURLOptionsAnnotationKey) {
+            source = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+            annotation = options[UIApplicationOpenURLOptionsAnnotationKey];
+        }
     }
-    #pragma clang diagnostic pop
     return [self application:application openURL:url sourceApplication:source annotation:annotation];
 }
 
@@ -950,7 +933,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 }
 
 - (BOOL)willShowPasteboardToast {
-    if (!self.preferenceHelper.identityID &&
+    if (!self.preferenceHelper.randomizedBundleToken &&
         [BNCPasteboard sharedInstance].checkOnInstall &&
         [BNCPasteboard sharedInstance].isUrlOnPasteboard) {
         return YES;
@@ -966,7 +949,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
     dispatch_async(self.isolationQueue, ^(){
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-        [[BNCAppleSearchAds sharedInstance] checkAppleSearchAdsSaveTo:[BNCPreferenceHelper preferenceHelper] installDate:[BNCApplication currentApplication].currentInstallDate completion:^{
+        [[BNCAppleSearchAds sharedInstance] checkAppleSearchAdsSaveTo:[BNCPreferenceHelper sharedInstance] installDate:[BNCApplication currentApplication].currentInstallDate completion:^{
             dispatch_semaphore_signal(semaphore);
         }];
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
@@ -980,10 +963,10 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 
 - (void)handleATTAuthorizationStatus:(NSUInteger)status {
     // limits impact if the client fails to check that status = notDetermined before calling
-    if ([BNCPreferenceHelper preferenceHelper].hasCalledHandleATTAuthorizationStatus) {
+    if ([BNCPreferenceHelper sharedInstance].hasCalledHandleATTAuthorizationStatus) {
         return;
     } else {
-        [BNCPreferenceHelper preferenceHelper].hasCalledHandleATTAuthorizationStatus = YES;
+        [BNCPreferenceHelper sharedInstance].hasCalledHandleATTAuthorizationStatus = YES;
     }
     
     BranchEvent *event;
@@ -1035,7 +1018,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
         dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
         [[BNCFacebookAppLinks sharedInstance] fetchFacebookAppLinkWithCompletion:^(NSURL * _Nullable appLink, NSError * _Nullable error) {
             if (appLink && !error) {
-                [BNCPreferenceHelper preferenceHelper].faceBookAppLink = appLink;
+                [BNCPreferenceHelper sharedInstance].faceBookAppLink = appLink;
             }
             dispatch_semaphore_signal(semaphore);
         }];
@@ -1170,82 +1153,47 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
 #pragma mark - Credit methods
 
 - (void)loadRewardsWithCallback:(callbackWithStatus)callback {
-    [self initSafetyCheck];
-    dispatch_async(self.isolationQueue, ^(){
-        BranchLoadRewardsRequest *req = [[BranchLoadRewardsRequest alloc] initWithCallback:callback];
-        [self.requestQueue enqueue:req];
-        [self processNextQueueItem];
-    });
+    return;
 }
 
 - (NSInteger)getCredits {
-    return [self.preferenceHelper getCreditCount];
+    return 0;
 }
 
 - (void)redeemRewards:(NSInteger)count {
-    [self redeemRewards:count forBucket:@"default" callback:NULL];
+    return;
 }
 
 - (void)redeemRewards:(NSInteger)count callback:(callbackWithStatus)callback {
-    [self redeemRewards:count forBucket:@"default" callback:callback];
+    return;
 }
 
 - (NSInteger)getCreditsForBucket:(NSString *)bucket {
-    return [self.preferenceHelper getCreditCountForBucket:bucket];
+    return 0;
 }
 
 - (void)redeemRewards:(NSInteger)count forBucket:(NSString *)bucket {
-    [self redeemRewards:count forBucket:bucket callback:NULL];
+    return;
 }
 
 - (void)redeemRewards:(NSInteger)count forBucket:(NSString *)bucket callback:(callbackWithStatus)callback {
-    if (count == 0) {
-        if (callback) {
-            callback(false, [NSError branchErrorWithCode:BNCRedeemZeroCreditsError]);
-        }
-        else {
-            BNCLogWarning(@"Cannot redeem zero credits.");
-        }
-        return;
-    }
-
-    NSInteger totalAvailableCredits = [self.preferenceHelper getCreditCountForBucket:bucket];
-    if (count > totalAvailableCredits) {
-        if (callback) {
-            callback(false, [NSError branchErrorWithCode:BNCRedeemCreditsError]);
-        }
-        else {
-            BNCLogWarning(@"You're trying to redeem more credits than are available. Have you loaded rewards?");
-        }
-        return;
-    }
-    [self initSafetyCheck];
-    dispatch_async(self.isolationQueue, ^(){
-        BranchRedeemRewardsRequest *req = [[BranchRedeemRewardsRequest alloc] initWithAmount:count bucket:bucket callback:callback];
-        [self.requestQueue enqueue:req];
-        [self processNextQueueItem];
-    });
+    return;
 }
 
 - (void)getCreditHistoryWithCallback:(callbackWithList)callback {
-    [self getCreditHistoryForBucket:nil after:nil number:100 order:BranchMostRecentFirst andCallback:callback];
+    return;
 }
 
 - (void)getCreditHistoryForBucket:(NSString *)bucket andCallback:(callbackWithList)callback {
-    [self getCreditHistoryForBucket:bucket after:nil number:100 order:BranchMostRecentFirst andCallback:callback];
+    return;
 }
 
 - (void)getCreditHistoryAfter:(NSString *)creditTransactionId number:(NSInteger)length order:(BranchCreditHistoryOrder)order andCallback:(callbackWithList)callback {
-    [self getCreditHistoryForBucket:nil after:creditTransactionId number:length order:order andCallback:callback];
+    return;
 }
 
 - (void)getCreditHistoryForBucket:(NSString *)bucket after:(NSString *)creditTransactionId number:(NSInteger)length order:(BranchCreditHistoryOrder)order andCallback:(callbackWithList)callback {
-    [self initSafetyCheck];
-    dispatch_async(self.isolationQueue, ^(){
-        BranchCreditHistoryRequest *req = [[BranchCreditHistoryRequest alloc] initWithBucket:bucket creditTransactionId:creditTransactionId length:length order:order callback:callback];
-        [self.requestQueue enqueue:req];
-        [self processNextQueueItem];
-    });
+    return;
 }
 
 - (BranchUniversalObject *)getFirstReferringBranchUniversalObject {
@@ -1630,7 +1578,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
     @synchronized (self) {
         static dispatch_once_t onceToken = 0;
         dispatch_once(&onceToken, ^{
-            BNCPreferenceHelper *preferenceHelper = [BNCPreferenceHelper preferenceHelper];
+            BNCPreferenceHelper *preferenceHelper = [BNCPreferenceHelper sharedInstance];
 
             // If there was stored key and it isn't the same as the currently used (or doesn't exist), we need to clean up
             // Note: Link Click Identifier is not cleared because of the potential for that to mess up a deep link
@@ -1638,20 +1586,14 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
                 BNCLogWarning(@"The Branch Key has changed, clearing relevant items.");
 
                 preferenceHelper.appVersion = nil;
-                preferenceHelper.deviceFingerprintID = nil;
+                preferenceHelper.randomizedDeviceToken = nil;
                 preferenceHelper.sessionID = nil;
-                preferenceHelper.identityID = nil;
+                preferenceHelper.randomizedBundleToken = nil;
                 preferenceHelper.userUrl = nil;
                 preferenceHelper.installParams = nil;
                 preferenceHelper.sessionParams = nil;
 
                 [[BNCServerRequestQueue getInstance] clearQueue];
-            }
-
-            if (self.enableFingerprintIDInCrashlyticsReports) {
-                BNCCrashlyticsWrapper *crashlytics = [BNCCrashlyticsWrapper wrapper];
-                // may be nil
-                [crashlytics setObjectValue:preferenceHelper.deviceFingerprintID forKey:BRANCH_CRASHLYTICS_FINGERPRINT_ID_KEY];
             }
 
             preferenceHelper.lastRunBranchKey = key;
@@ -1915,7 +1857,7 @@ static BOOL bnc_enableFingerprintIDInCrashlyticsReports = YES;
         BranchContentDiscoverer *contentDiscoverer = [BranchContentDiscoverer getInstance];
         if (contentDiscoverer) [contentDiscoverer stopDiscoveryTask];
 
-        BOOL sendCloseRequests = [[BNCPreferenceHelper preferenceHelper] sendCloseRequests];
+        BOOL sendCloseRequests = [[BNCPreferenceHelper sharedInstance] sendCloseRequests];
         if (sendCloseRequests && self.preferenceHelper.sessionID && ![self.requestQueue containsClose]) {
             BranchCloseRequest *req = [[BranchCloseRequest alloc] init];
             [self.requestQueue enqueue:req];
@@ -2059,7 +2001,7 @@ static inline void BNCPerformBlockOnMainThreadSync(dispatch_block_t block) {
 
             // If tracking is disabled, then do not check for install event.  It won't exist.
             if (!Branch.trackingDisabled) {
-                if (![req isKindOfClass:[BranchInstallRequest class]] && !self.preferenceHelper.identityID) {
+                if (![req isKindOfClass:[BranchInstallRequest class]] && !self.preferenceHelper.randomizedBundleToken) {
                     BNCLogError(@"User session has not been initialized!");
                     BNCPerformBlockOnMainThreadSync(^{
                         [req processResponse:nil error:[NSError branchErrorWithCode:BNCInitError]];
@@ -2067,7 +2009,7 @@ static inline void BNCPerformBlockOnMainThreadSync(dispatch_block_t block) {
                     return;
 
                 } else if (![req isKindOfClass:[BranchOpenRequest class]] &&
-                    (!self.preferenceHelper.deviceFingerprintID || !self.preferenceHelper.sessionID)) {
+                    (!self.preferenceHelper.randomizedDeviceToken || !self.preferenceHelper.sessionID)) {
                     BNCLogError(@"Missing session items!");
                     BNCPerformBlockOnMainThreadSync(^{
                         [req processResponse:nil error:[NSError branchErrorWithCode:BNCInitError]];
@@ -2156,7 +2098,7 @@ static inline void BNCPerformBlockOnMainThreadSync(dispatch_block_t block) {
 // only called from initUserSessionAndCallCallback!
 - (void)initializeSessionAndCallCallback:(BOOL)callCallback sceneIdentifier:(NSString *)sceneIdentifier {
 	Class clazz = [BranchInstallRequest class];
-	if (self.preferenceHelper.identityID) {
+	if (self.preferenceHelper.randomizedBundleToken) {
 		clazz = [BranchOpenRequest class];
 	}
 
@@ -2507,14 +2449,14 @@ static inline void BNCPerformBlockOnMainThreadSync(dispatch_block_t block) {
         queue:NSOperationQueue.mainQueue
         usingBlock:^(NSNotification *notification) {
             BNCCrashlyticsWrapper *crashlytics = [BNCCrashlyticsWrapper wrapper];
-            [crashlytics setBoolValue:YES forKey:BRANCH_CRASHLYTICS_LOW_MEMORY_KEY];
+            [crashlytics setCustomValue:@YES forKey:BRANCH_CRASHLYTICS_LOW_MEMORY_KEY];
         }
     ];
 }
 
 + (void)addBranchSDKVersionToCrashlyticsReport {
     BNCCrashlyticsWrapper *crashlytics = [BNCCrashlyticsWrapper wrapper];
-    [crashlytics setObjectValue:BNC_SDK_VERSION forKey:BRANCH_CRASHLYTICS_SDK_VERSION_KEY];
+    [crashlytics setCustomValue:BNC_SDK_VERSION forKey:BRANCH_CRASHLYTICS_SDK_VERSION_KEY];
 }
 
 + (void) clearAll {

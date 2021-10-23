@@ -15,7 +15,7 @@ github "nodes-ios/Codemine" ~> 1.1
 #3rd party
 github "Juanpe/SkeletonView"
 github "airbnb/lottie-ios" ~> 3.0.1
-github "onevcat/Kingfisher" ~> 5.0
+github "onevcat/Kingfisher" ~> 7.0
 github "BranchMetrics/ios-branch-deep-linking"
 github "mixpanel/mixpanel-swift"
 github "Alamofire/Alamofire" ~> 5.2.0

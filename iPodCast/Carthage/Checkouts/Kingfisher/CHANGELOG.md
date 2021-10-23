@@ -2,6 +2,223 @@
 
 -----
 
+## [7.1.1 - Double Ninth](https://github.com/onevcat/Kingfisher/releases/tag/7.1.1) (2021-10-16)
+
+#### Fix
+* In some cases the `KFImage` loading causes a freeze on certain iOS 14 systems. [#1849](https://github.com/onevcat/Kingfisher/issues/1849) Thanks reporting from @JetForMe @benjamincombes @aralatpulat
+* Setting image to an `AnimatedImageView` now correctly replaces its layer contents. [#1836](https://github.com/onevcat/Kingfisher/issues/1836) @phantomato
+
+---
+
+## [7.1.0 - Autumn Patch](https://github.com/onevcat/Kingfisher/releases/tag/7.1.0) (2021-10-12)
+
+#### Add
+* Extension for CarPlay support. Now you can use Kingfisher's extension image setting methods on `CPListItem`. [#1802](https://github.com/onevcat/Kingfisher/pull/1820) from @waynehartman
+
+#### Fix
+* An Xcode issue that not recognizes iOS 15 availability checking for Apple Silicon. [#1822](https://github.com/onevcat/Kingfisher/pull/1822) from @enoktate
+* Add `onFailureImage` modifier back to `KFImage`, which was unexpected removed while upgrading. [#1829](https://github.com/onevcat/Kingfisher/pull/1829) from @skellock
+* Start binder loading when `body` is evaluated. This fixes an unwanted flickering. This also adds a protection for internal loading state.  [#1828](https://github.com/onevcat/Kingfisher/pull/1828) from @JetForMe and @IvanShah
+* Use color description based on `CGFloat` style of a color instead of a hex value to allow extended color space when setting it to a processor. [#1826](https://github.com/onevcat/Kingfisher/pull/1826) from @vonox7
+* An issue that the local file provided images are cached for multiple times when an app is updated. This is due to a changing main bundle location on the disk. Now Kingfisher uses a stable version of disk URL as the default cache key. [#1831](https://github.com/onevcat/Kingfisher/pull/1831) from @iaomw
+* Now `KFImage`'s internal rendered view is wrapped by a `ZStack`. This prevents a lazy container from recognizing different `KFImage`s with a same URL as the same view. [#1840](https://github.com/onevcat/Kingfisher/pull/1840) from @iOSappssolutions
+
+---
+
+## [7.0.0 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0) (2021-09-21)
+
+#### Add
+* Rewrite SwiftUI support based on `@StateObject` instead of the old `@ObservedObject`. It provides a stable and better data model backs the image rendering in SwiftUI. For this, Kingfisher SwiftUI supports from iOS 14 now. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+* Mark `ImageCache.retrieveImageInMemoryCache(forKey:options:)` as `open` to expose a correct override entry point to outside. [#1703](https://github.com/onevcat/Kingfisher/pull/1703)
+* The `NSTextAttachment` extension method now accepts closure instead of a evaluated view. This allows delaying the passing in view to the timing which actually it is needed. [#1746](https://github.com/onevcat/Kingfisher/pull/1746)
+* A `KFAnimatedImage` type to display a GIF image in SwiftUI. [#1705](https://github.com/onevcat/Kingfisher/pull/1705)
+* Add a `progress` parameter to the `KFImage`'s `placeholder` closure. This allows you create a view based on the loading progress. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+* Now `KFAnimatedImage` also supports `configure` modifier so you can set options to the underhood `AnimatedImageView`. [#1768](https://github.com/onevcat/Kingfisher/pull/1768)
+* Expose `AnimatedImageView` fields to allow consumers to observe GIF progress. [#1789](https://github.com/onevcat/Kingfisher/pull/1789) @AttilaTheFun
+* An option to pass in an [write option](https://developer.apple.com/documentation/foundation/nsdata/writingoptions) for writing data to the disk cache. This allows writing cache in a fine-tuned way, such as `.atomic` or `.completeFileProtection`. [#1793](https://github.com/onevcat/Kingfisher/pull/1793) @ignotusverum
+
+#### Fix
+* Uses `UIGraphicsImageRenderer` on iOS and tvOS for better image drawing. [#1706](https://github.com/onevcat/Kingfisher/pull/1706)
+* An issue that prevents Kingfisher compiling on mac Catalyst target in some certain of Xcode versions. [#1692](https://github.com/onevcat/Kingfisher/pull/1692) @kvyatkovskys
+* The `KF.retry(:_)` method now accepts an optional value. It allows to reset the retry strategy by passing in a `nil` value. [#1729](https://github.com/onevcat/Kingfisher/pull/1729)
+* The `placeholder` view builder of `KFImage` now works when it gets changed instead of using its initial value forever. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+* Some minor performance improvement. [#1739](https://github.com/onevcat/Kingfisher/pull/1739) @fuyoufang
+* The `LocalFileImageDataProvider` now loads data in a background queue by default. This prevents loading performance issue when the loading is created on main thread. [#1764](https://github.com/onevcat/Kingfisher/pull/1764) @ConfusedVorlon
+* Respect transition for SwiftUI view when using `KFImage`. [#1767](https://github.com/onevcat/Kingfisher/pull/1767)
+* A type of `AuthenticationChallengeResponsable`. Now use `AuthenticationChallengeResponsible` instead. [#1780](https://github.com/onevcat/Kingfisher/pull/1780) @fakerlogic
+* An issue that `AnimatedImageView` dose not change the `tintColor` for templated images. [#1786](https://github.com/onevcat/Kingfisher/pull/1786) @leonpesdk
+* A crash when loading a GIF image in iOS 13 and below. [#1805](https://github.com/onevcat/Kingfisher/pull/1805/) @leonpesdk
+
+#### Remove
+* Drop support for iOS 10/11, macOS 10.13/10.14, tvOS 10/11 and watch OS 3/4. [#1802](https://github.com/onevcat/Kingfisher/issues/1802)
+* The workaround of `KFImage.loadImmediately` is not necessary anymore due to the model switching to `@StateObject`. The interface is kept for backward compatibility, but it does nothing in the new version. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+
+---
+
+## [7.0.0-beta.4 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0-beta.4) (2021-09-16)
+
+#### Add
+* An option to pass in an [write option](https://developer.apple.com/documentation/foundation/nsdata/writingoptions) for writing data to the disk cache. This allows writing cache in a fine-tuned way, such as `.atomic` or `.completeFileProtection`. [#1793](https://github.com/onevcat/Kingfisher/pull/1793)
+
+#### Fix
+* A crash when loading a GIF image in iOS 13 and below. [#1805](https://github.com/onevcat/Kingfisher/pull/1805/files)
+
+---
+
+## [7.0.0-beta.3 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0-beta.3) (2021-08-29)
+
+#### Add
+* Now `KFAnimatedImage` also supports `configure` modifier so you can set options to the underhood `AnimatedImageView`. [#1768](https://github.com/onevcat/Kingfisher/pull/1768)
+* Expose `AnimatedImageView` fields to allow consumers to observe GIF progress. [#1789](https://github.com/onevcat/Kingfisher/pull/1789)
+
+#### Fix
+* Respect transition for SwiftUI view when using `KFImage`. [#1767](https://github.com/onevcat/Kingfisher/pull/1767)
+* A type of `AuthenticationChallengeResponsable`. Now use `AuthenticationChallengeResponsible` instead. [#1780](https://github.com/onevcat/Kingfisher/pull/1780/files)
+* An issue that `AnimatedImageView` dose not change the `tintColor` for templated images. [#1786](https://github.com/onevcat/Kingfisher/pull/1786)
+
+---
+
+## [7.0.0-beta.2 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0-beta.2) (2021-08-02)
+
+#### Fix
+
+- `LocalFileImageDataProvider` now loads data in a background queue by default. This prevents loading performance issue when the loading is created on main thread. [#1764]
+
+---
+
+## [7.0.0-beta.1 - Version 7](https://github.com/onevcat/Kingfisher/releases/tag/7.0.0-beta.1) (2021-07-27)
+
+#### Add
+* Rewrite SwiftUI support based on `@StateObject` instead of the old `@ObservedObject`. It provides a stable and better data model backs the image rendering in SwiftUI. For this, Kingfisher SwiftUI supports from iOS 14 now. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+* Mark `ImageCache.retrieveImageInMemoryCache(forKey:options:)` as `open` to expose a correct override entry point to outside. [#1703](https://github.com/onevcat/Kingfisher/pull/1703)
+* The `NSTextAttachment` extension method now accepts closure instead of a evaluated view. This allows delaying the passing in view to the timing which actually it is needed. [#1746](https://github.com/onevcat/Kingfisher/pull/1746)
+* A `KFAnimatedImage` type to display a GIF image in SwiftUI. [#1705](https://github.com/onevcat/Kingfisher/pull/1705)
+* Add a `progress` parameter to the `KFImage`'s `placeholder` closure. This allows you create a view based on the loading progress. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+
+#### Fix
+* Uses `UIGraphicsImageRenderer` on iOS and tvOS for better image drawing. [#1706](https://github.com/onevcat/Kingfisher/pull/1706)
+* An issue that prevents Kingfisher compiling on mac Catalyst target in some certain of Xcode versions. [#1692](https://github.com/onevcat/Kingfisher/pull/1692)
+* The `KF.retry(:_)` method now accepts an optional value. It allows to reset the retry strategy by passing in a `nil` value. [#1729](https://github.com/onevcat/Kingfisher/pull/1729)
+* The `placeholder` view builder of `KFImage` now works when it gets changed instead of using its initial value forever. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+* Some minor performance improvement. [#1739](https://github.com/onevcat/Kingfisher/pull/1739)
+
+#### Remove
+* Drop support for iOS 10, macOS 10.13, tvOS 10 and watch OS 3.
+* The workaround of `KFImage.loadImmediately` is not necessary anymore due to the model switching to `@StateObject`. The interface is kept for backward compatibility, but it does nothing in the new version. [#1707](https://github.com/onevcat/Kingfisher/pull/1707)
+
+---
+
+## [6.3.0 - Open To Better](https://github.com/onevcat/Kingfisher/releases/tag/6.3.0) (2021-04-21)
+
+#### Add
+* Mark `SessionDelegate` as public to allow a subclass to take over the delegate methods from session tasks. [#1658](https://github.com/onevcat/Kingfisher/pull/1658)
+* A new `imageDownloader(_:didDownload:with:)` in `ImageDownloaderDelegate` to pass not only `Data` but also the whole `URLResponse` to delegate method. Now you can determine how to handle these data based on the received response. [#1676](https://github.com/onevcat/Kingfisher/pull/1676)
+* An option `autoExtAfterHashedFileName` in `DiskStorage.Config` to allow appending the file extension extracted from the cache key. [#1671](https://github.com/onevcat/Kingfisher/pull/1671)
+
+#### Fix
+* Now the GIF continues to play in a collection view cell with highlight support. [#1685](https://github.com/onevcat/Kingfisher/pull/1685)
+* Fix a crash when loading GIF files with lots of frames in `AnimatedImageView`. Thanks for contribution from @wow-such-amazing [#1686](https://github.com/onevcat/Kingfisher/pull/1686)
+
+---
+
+## [6.2.1 - Spring Release Fix](https://github.com/onevcat/Kingfisher/releases/tag/6.2.1) (2021-03-09)
+
+#### Fix
+* Revert changes for the external delegate in [#1620](https://github.com/onevcat/Kingfisher/pull/1620), which caused some image resource loading failing due to a CFNetwork internal error.
+
+---
+
+## [6.2.0 - Spring Release](https://github.com/onevcat/Kingfisher/releases/tag/6.2.0) (2021-03-08)
+
+#### Add
+* The backend of Kingfisher's cache solution, `DiskStorage` and `MemoryStorage`, are now marked as `public`. So you can use them standalone in your project. [#1649](https://github.com/onevcat/Kingfisher/pull/1649)
+* An `imageFrameCount` property in image view extensions. It holds the frame count of an animated image if available. [#1647](https://github.com/onevcat/Kingfisher/pull/1647)
+* A new `extraSessionDelegateHandler` in `ImageDownloader`. Now you can receive the related session task delegate method by registering an external delegate object. [#1620](https://github.com/onevcat/Kingfisher/pull/1620)
+* A new method `loadImmediately` for `KFImage` to start the load manually. It is useful if you want to load the image before `onAppear` is called.
+
+#### Fix
+* Drop the use of `@State` for keeping image across `View` update for `KFImage`. This should fix some SwiftUI internal crash when setting the image in `KFImage`. [#1642](https://github.com/onevcat/Kingfisher/pull/1642)
+* The image reference in `ImageBinder` now is marked with `weak`. This helps release memory quicker in some cases. [#1640](https://github.com/onevcat/Kingfisher/pull/1640)
+
+---
+
+## [6.1.1 - SwiftUI Issues](https://github.com/onevcat/Kingfisher/releases/tag/6.1.1) (2021-02-17)
+
+#### Fix
+* Remove unnecessary queue dispatch when setting image result. This prevents image flickering when some situation. [#1615](https://github.com/onevcat/Kingfisher/pull/1615)
+* Now the `KF` builder methods also accept optional `URL` or `Source`. It aligns the syntax with the normal view extension methods. [#1617](https://github.com/onevcat/Kingfisher/pull/1617)
+* Fix an issue that wrong hash is calculated for `ImageBinder`. It might cause view state lost for a `KFImage`. [#1624](https://github.com/onevcat/Kingfisher/pull/1624)
+* Now the `ImageCache` will disable the disk storage when there is no free space on disk when creating the cache folder, instead of just crashing it. [#1628](https://github.com/onevcat/Kingfisher/pull/1628)
+* A workaround for `@State` lost when using a view inside another container in a `Lazy` stack or grid. [#1631](https://github.com/onevcat/Kingfisher/pull/1631)
+* Performance improvement for images with an non-up orientation in Exif when displaying in `KFImage`. [#1629](https://github.com/onevcat/Kingfisher/pull/1629)
+
+---
+
+## [6.1.0 - SwiftUI Rework](https://github.com/onevcat/Kingfisher/releases/tag/6.1.0) (2021-02-01)
+
+#### Add
+* Rewrite state management for `KFImage`. Now the image reloading works in a more stable way without task dispatching. [#1604](https://github.com/onevcat/Kingfisher/pull/1604)
+* Add `fade` and `forceTransition` modifier to `KFImage` to support built-in fade in effect when loading image in SwiftUI. [#1604](https://github.com/onevcat/Kingfisher/pull/1604)
+
+#### Fix
+* When an `ImageModifier` is applied, the modified image is not cached to memory cache anymore. The `ImageModifier` is intended to be used just before setting the image to a view and now it works as expected. [#1612](https://github.com/onevcat/Kingfisher/pull/1612)
+* Now `SwiftUI` and `Combine` are declared as weak link in podspec. This is a workaround for [some rare case build issue](https://stackoverflow.com/a/60198305). It does not affect supported deploy version of Kingfisher. [#1607](https://github.com/onevcat/Kingfisher/pull/1607)
+* Remove header file from podspec to allow Kingfisher built as a static framework in a Swift-ObjC mixed project. [#1608](https://github.com/onevcat/Kingfisher/pull/1608)
+
+---
+
+## [6.0.1 - Bind & Hug](https://github.com/onevcat/Kingfisher/releases/tag/6.0.1) (2021-01-05)
+
+#### Fix
+* Start the binder again when `KFImage` initialized, to keep the same behavior as previous versions. [#1594](https://github.com/onevcat/Kingfisher/issues/1594)
+
+---
+
+## [6.0.0 - New Year 2021](https://github.com/onevcat/Kingfisher/releases/tag/6.0.0) (2021-01-03)
+
+#### Add
+* A `KF` shorthand to create image setting tasks and config them. It provides a cleaner and modern way to use Kingfisher. Now, instead of using `imageView.kf.setImage(with:options:)`, you can perform chain-able invocation with `KF` helpers. For example, the code below is identical. [#1546](https://github.com/onevcat/Kingfisher/pull/1546)
+
+    ```swift
+    // Old way
+    imageView.kf.setImage(
+      with: url,
+      placeholder: localImage,
+      options: [.transition(.fade(1)), .loadDiskFileSynchronously],
+      progressBlock: { receivedSize, totalSize in
+          print("progressBlock")
+      },
+      completionHandler: { result in
+          print(result)
+      }
+    )
+
+    // New way
+    KF.url(url)
+      .placeholder(localImage)
+      .fade(duration: 1)
+      .loadDiskFileSynchronously()
+      .onProgress { _ in print("progressBlock") }
+      .onSuccess { result in print(result) }
+      .onFailure { err in print("Error: \(err)") }
+      .set(to: imageView)
+    ```
+    
+* Similar to `KF`, The `KFImage` for SwiftUI is now having the similar chain-able syntax to setup an image task and options. This makes the `KFImage` APIs closer to the way how SwiftUI code is written. [#1586](https://github.com/onevcat/Kingfisher/pull/1586)
+* Add support for `TVMonogramView` on tvOS. [#1571](https://github.com/onevcat/Kingfisher/pull/1571)
+* Some important properties and method in `AnimatedImageView.Animator` are marked as `public` now. It provides some useful information of the decoded GIF files. [#1575](https://github.com/onevcat/Kingfisher/pull/1575)
+* An `AsyncImageDownloadRequestModifier` to support modifying the request in an asynchronous way. [#1589](https://github.com/onevcat/Kingfisher/pull/1589/files)
+* Add a `.lowDataMode` option to support for Low Data Mode. When the `.lowDataMode` option is provided with an alternative source (usually a low-resolution version of the original image), Kingfisher will respect user's Low Data Mode setting and download the alternative image instead. [#1590](https://github.com/onevcat/Kingfisher/pull/1590)
+
+#### Fix
+* An issue that importing AppKit wrongly in a macCatalyst build. [#1547](https://github.com/onevcat/Kingfisher/pull/1547/commits/096498f7798a6fd34c70efc6f80014dfc6d8a9b7)
+
+#### Remove
+* Deprecated types, methods and properties are removed. If you are still using `Kingfisher.Image`, `Kingfisher.ImageView` or `Kingfisher.Button`, use the equivalent `KFCrossPlatform` types (such as `KFCrossPlatformImage`, etc) instead. Please make sure you do not have any warnings before migrate to Kingfisher v6. For more about the removed deprecated things, check [#1525](https://github.com/onevcat/Kingfisher/pull/1525/files).
+* The standalone framework target of SwiftUI support is removed. Now the SwiftUI support is a part in the main Kingfisher library. To upgrade to v6, first remove `Kingfisher/SwiftUI` subpod (if you are using CocoaPods) or remove the `KingfisherSwiftUI` target (if you are using Carthage or Swift Package Manager), then reinstall Kingfisher. [#1574](https://github.com/onevcat/Kingfisher/pull/1574)
+
+---
+
 ## [5.15.8 - KFImage handler](https://github.com/onevcat/Kingfisher/releases/tag/5.15.8) (2020-11-27)
 
 #### Fix
